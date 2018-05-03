@@ -1,0 +1,61 @@
+---
+---
+
+
+
+
+{{reference}}
+
+<style>
+.vspace20px {
+  margin-bottom: 20px;
+}
+</style>
+
+
+<div id="{{key}}-materials">
+  <div class="nav nav-pills"  id="#myContent">
+    {% if entry.abstract %}
+      <a data-toggle="collectionapse_custom" data-target="#{{key}}-idAbstract" data-local="#myContent">[Abstract]</a>&nbsp;
+    {% endif %}
+
+    <a data-toggle="collapse_custom" data-target="#{{key}}-idBibtex" dialogata-local="#myContent">[bibtex]</a>&nbsp;
+
+
+    {% if entry.paperpdf %}
+      <a href="{{ site.url }}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank">[PDF]</a>&nbsp;
+    {% endif %}
+
+    {% if entry.abstract %}
+
+      <div id="{{key}}-idAbstract" classss="collapse" data-local="#myContent">
+        <div class="marge">
+          <div class="containerborder">
+            {{entry.abstract}}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div id="{{key}}-idBibtex" class="collapse" data-local="#myContent">
+      <div class="marge">
+        <div markdown="1">
+          {% highlight bibtex %}
+          {{ entry.bibtex | correctBibEntry }}
+          {% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="vspace20px">
+  </p>
+</div>
+<!-- 
+  {{ entry.bibtex | correctBibEntry }} 
+-->
+
+<bibtex!--
+     {{ page.blblbl | findBibEntry: entry.key }}
+     -->
+
+
