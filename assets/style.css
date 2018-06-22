@@ -67,3 +67,46 @@ img {
 .name {
   right: 21% !important;
 }
+
+.section {
+  padding-bottom: 0;
+}
+
+.vl {
+  border-left: 1px solid white;
+}
+
+.tabs .tab {
+  height: 35px;
+  line-height: 35px;
+}
+
+.custom-col {
+  width: 20%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+.heading {
+  padding-bottom: 4%;
+}
+
+#publications .bibliography li {
+  padding-bottom: 2%;
+}
+
+#publications h1 {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'Raleway';
+  font-size: 30px;
+  color: black;
+  padding-bottom: 1%;
+}
+
+.heading a {
+  color: white;
+  text-decoration: underline;
+}

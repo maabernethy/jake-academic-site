@@ -17,7 +17,7 @@
     <div id="home" class="">
       <div class="section">
         <div class="container">
-          <div class="row">
+          <div class="row heading">
             <div class="col s5">
               <img src="assets/images/jake.png" alt="Jacob Abernethy">
               <div class="contact">
@@ -33,12 +33,16 @@
               <h1 class="col s12 pull-s3 name">JACOB ABERNETHY</h1>
               <br>
               <h4 class="col s12 light">I am currently an Assistant Professor in the
-                Department of Electrical Engineering and Computer Science at the University of Michigan. </h4>
+                <a href="https://www.eecs.umich.edu/" target="_blank">Department of Electrical Engineering and Computer Science</a> at the
+                <a href="http://umich.edu/" target="_blank">University of Michigan</a>. </h4>
               </br>
               <h4 class="col s12 light">
                 My research focus is Machine Learning, and I like discovering connections between Optimization,
-                Statistics, and Economics. I finished my PhD at UC Berkeley with Peter Bartlett in 2011, and I was
-                a Simons postdoctoral fellow with Michael Kearns for the following two years.</h5>
+                Statistics, and Economics. I finished my PhD at <a href="https://www.berkeley.edu/" target="_blank">UC Berkeley</a>
+                with <a href="https://www.stat.berkeley.edu/~bartlett/" target="_blank">Peter Bartlett</a> in 2011, and I was a
+                <a href="https://www.simonsfoundation.org/funding-guidelines/simons-post-doctoral-fellows-program/current-fellows" target="_Blank">Simons postdoctoral fellow</a>
+                with <a href="http://www.cis.upenn.edu/~mkearns/" target="_blank">Michael Kearns</a>
+                for the following two years.</h5>
               </h4>
             </div>
           </div>
@@ -46,10 +50,11 @@
           <div class="row">
             <div class="col s12">
               <ul class="tabs">
-                <li class="tab col s3"><a href="#test1">Test 1</a></li>
-                <li class="tab col s3"><a href="#test2">Test 2</a></li>
-                <li class="tab col s3"><a href="#test3">Tab 3</a></li>
-                <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                <li class="tab col custom-col"><a href="#group">RESEARCH GROUP</a></li>
+                <li class="tab col custom-col vl"><a href="#publications">PUBLICATIONS</a></li>
+                <li class="tab col custom-col vl"><a href="#conferences">CONFERENCES</a></li>
+                <li class="tab col custom-col vl"><a href="#news">NEWS</a></li>
+                <li class="tab col custom-col vl"><a href="#teaching">TEACHING</a></li>
               </ul>
             </div>
           </div>
@@ -59,10 +64,14 @@
 
     <div class="container" style="padding:20px;">
       <div id="blog" class="section">
-          <div id="test1" class="col s12">Test 1</div>
-          <div id="test2" class="col s12">Test 2</div>
-          <div id="test3" class="col s12">Test 3</div>
-          <div id="test4" class="col s12">Test 4</div>
+        {% assign sections = site.sections | sort: 'order' %}
+        {% for section in sections %}
+          {% if section.include != null %}
+            {% include {{ section.include }} %}
+          {% else %}
+            {% include sections/default.html %}
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
 

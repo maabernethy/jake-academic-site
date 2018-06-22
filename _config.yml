@@ -163,11 +163,16 @@ scholar:
   style: apa
   bibliography: references.bib
   bibliography_template: bibliography
-  group_by: type,year
-  group_order: ascending,descending
+  sort_by: year,month
+  order: ascending,descending
 markdown: kramdown
 permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-assets
   - jekyll-minifier
+
+collections:
+  - sections
+
+dir_pubs: pdf/publications
