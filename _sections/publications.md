@@ -6,4 +6,6 @@ link_id: publications
 layout: default
 ---
 
+# Publications
+
 {% bibliography --file references %}

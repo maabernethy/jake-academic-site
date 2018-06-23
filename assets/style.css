@@ -96,7 +96,7 @@ img {
   padding-bottom: 2%;
 }
 
-#publications h1 {
+#publications h1, #group h1, #conferences h1 {
   padding-top: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -106,7 +106,41 @@ img {
   padding-bottom: 1%;
 }
 
+#group ul {
+  padding-left: 3%;
+}
+
+#group li {
+  padding-bottom: 2%;
+}
+
+#group li a {
+  color: black;
+  text-decoration: underline;
+}
+
 .heading a {
   color: white;
   text-decoration: underline;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 300px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
 }
