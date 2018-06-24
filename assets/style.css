@@ -50,7 +50,7 @@ h5 {
 }
 
 img {
-  width: 70%;
+  width: 320px;
   float: right;
 }
 
@@ -126,10 +126,39 @@ img {
   text-decoration: underline;
 }
 
+h4.about {
+  width: 85%;
+}
+
 @media only screen and (max-width: 882px) {
   /* For mobile phones: */
   [class*="custom-col"] {
     width: auto;
+  }
+  .heading img {
+    float: left;
+    display: block;
+  }
+  .heading .contact {
+    text-align: inherit;
+    float: left;
+    display: block;
+    margin-top: 3px;
+  }
+  .heading .col.s5 {
+    width: 100%;
+  }
+  .heading .col.s7 {
+    width: 100%;
+  }
+  .heading .col.pull-s3 {
+    right: unset;
+  }
+  .name {
+    right: unset !important;
+  }
+  .heading .col.s10 {
+    width: 100%;
   }
 }
 
