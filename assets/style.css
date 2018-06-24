@@ -33,6 +33,7 @@ h5 {
 
 .tabs .tab a {
   color: #ADD6E9;
+  text-overflow: unset;
 }
 
 .tab a:hover {
@@ -82,7 +83,7 @@ img {
 }
 
 .custom-col {
-  width: 20%;
+  width: 16.667%;
   margin-left: auto;
   left: auto;
   right: auto;
@@ -104,10 +105,11 @@ img {
   font-size: 30px;
   color: black;
   padding-bottom: 1%;
+  margin-left: 5%;
 }
 
 #group ul {
-  padding-left: 3%;
+  padding-left: 7%;
 }
 
 #group li {
@@ -124,23 +126,39 @@ img {
   text-decoration: underline;
 }
 
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 300px;
+@media only screen and (max-width: 882px) {
+  /* For mobile phones: */
+  [class*="custom-col"] {
+    width: auto;
+  }
 }
 
-div.gallery:hover {
-  border: 1px solid #777;
+@media only screen and (max-width: 1559px) {
+  .container {
+    width: 75%;
+  }
 }
 
-div.gallery img {
-  width: 100%;
-  height: auto;
+@media only screen and (max-width: 1450px) {
+  .container {
+    width: 80%;
+  }
 }
 
-div.desc {
-  padding: 15px;
-  text-align: center;
+@media only screen and (max-width: 1370px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1166px) {
+  .container {
+    width: 100%;
+  }
 }
