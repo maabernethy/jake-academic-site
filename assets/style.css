@@ -130,13 +130,34 @@ h4.about {
   width: 85%;
 }
 
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 300px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 882px) {
   /* For mobile phones: */
   [class*="custom-col"] {
     width: auto;
   }
   .heading img {
-    float: left;
+    float: none;
     display: block;
   }
   .heading .contact {
@@ -147,9 +168,11 @@ h4.about {
   }
   .heading .col.s5 {
     width: 100%;
+    padding-left: 5%;
   }
   .heading .col.s7 {
     width: 100%;
+    padding-left: 5%;
   }
   .heading .col.pull-s3 {
     right: unset;
