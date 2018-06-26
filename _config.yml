@@ -164,7 +164,7 @@ scholar:
   bibliography: references.bib
   bibliography_template: bibliography
   sort_by: year,month
-  order: ascending,descending
+  order: descending
 markdown: kramdown
 permalink: pretty
 plugins:
