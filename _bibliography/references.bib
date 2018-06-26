@@ -1,35 +1,754 @@
----
----
-References
-==========
 
-@inproceedings{scieur2016regularized,
-  title={Regularized Nonlinear Acceleration},
-  author={Scieur, Damien and d'Aspremont, Alexandre and Bach, Francis},
-  booktitle={Advances In Neural Information Processing Systems},
-  pages={712--720},
-  year={2016},
-  paperpdf={6267-regularized-nonlinear-acceleration.pdf},
-  abstract={We defaultscribe a convergence acceleration technique for generic optimization problems. Our scheme computes estimates of the optimum from a nonlinear average of the iterates produced by any optimization method. The weights in this average are computed via a simple and small linear system, whose solution can be updated online. This acceleration scheme runs in parallel to the base algorithm, providing improved estimates of the solution on the fly, while the original optimization method is running. Numerical experiments are detailed on classical classification problems.}
+%%%% Journal Papers %%%%
+
+@article{abernethy2008eliciting,
+  title={Eliciting consumer preferences using robust adaptive choice questionnaires},
+  author={Abernethy, Jacob and Evgeniou, Theodoros and Toubia, Olivier and Vert, Jean-Philippe},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  volume={20},
+  number={2},
+  pages={145--155},
+  year={2008},
+  publisher={IEEE},
+  link={http://faculty.insead.edu/theodoros-evgeniou/documents/eliciting_consumer_preferences_using_robust_adaptive_choice_questionnaires.pdf}
 }
 
 
-@techreport{scieur2017integration,
-  title={Integration Methods and Accelerated Optimization Algorithms},
-  author={Scieur, Damien and Roulet, Vincent and Bach, Francis and d'Aspremont, Alexandre},
-  journal={arXiv preprint arXiv:1702.06751},
-  year={2017},
-  paperpdf={Integration Methods and Acceleratedated Optimization Algorithms.pdf},
-  abstract={We show that Accelerated optimization methods can be seen as particular instances of multi-step integration schemes from numerical analysis, applied to the gradient flow equation. In comparison with recent advances in this vein, the differential equation considered here is the basic gradient flow and we show that multi-step schemes allow integration of this differential equation using larger step sizes, thus intuitively explaining acceleration results.}
+@article{abernethy2009new,
+  title={A New Approach to Collaborative Filtering: Operator Estimation with Spectral Regularization},
+  author={Abernethy, Jacob and Bach, Francis and Evgeniou, Theodoros and Vert, Jean-Philippe},
+  journal={The Journal of Machine Learning Research},
+  volume={10},
+  pages={803--826},
+  year={2009},
+  publisher={JMLR.org},
+  link={http://jmlr.org/papers/volume10/abernethy09a/abernethy09a.pdf},
+}
+
+@article{abernethy2010graph,
+  title={Graph regularization methods for web spam detection},
+  author={Abernethy, Jacob and Chapelle, Olivier and Castillo, Carlos},
+  journal={Machine Learning Journal},
+  volume={81},
+  number={2},
+  pages={207--225},
+  year={2010},
+  publisher={Springer US},
+  link={http://web.eecs.umich.edu/~jabernet/paper_webspam_mlj_final.pdf},
 }
 
 
-@mastersthesis{scieur2015master,
-  title={Global Complexity Analysis For The Second-Order Methods},
-  author={Scieur, Damien},
+@article{abernethy2012interior,
+  title={Interior-point methods for full-information and bandit online learning},
+  author={Abernethy, Jacob D and Hazan, Elad and Rakhlin, Alexander},
+  journal={IEEE Transactions on Information Theory},
+  volume={58},
+  number={7},
+  pages={4164--4175},
+  year={2012},
+  publisher={IEEE},
+  link={http://stat.wharton.upenn.edu/~rakhlin/papers/ieee_interior_point.pdf}
+}
+
+
+@article{abernethy2013efficient,
+  title={Efficient market making via convex optimization, and a connection to online learning},
+  author={Abernethy, Jacob and Chen, Yiling and Vaughan, Jennifer Wortman},
+  journal={ACM Transactions on Economics and Computation},
+  volume={1},
+  number={2},
+  pages={12},
+  year={2013},
+  publisher={ACM},
+  link={http://web.eecs.umich.edu/~jabernet/papers/ACV12.pdf},
+}
+
+
+@article{abernethy2016perturbation,
+  title={Perturbation techniques in online learning and optimization},
+  author={Abernethy, Jacob and Lee, Chansoo and Tewari, Ambuj},
+  journal={Perturbations, Optimization, and Statistics, Neural Information Processing Series},
+  year={2016}
+}
+
+
+@article{abernethy2015risk,
+  title={On risk measures, market making, and exponential families},
+  author={Abernethy, Jacob D and Frongillo, Rafael M and Kutty, Sindhu},
+  journal={ACM SIGecom Exchanges},
+  volume={13},
+  number={2},
+  pages={21--25},
   year={2015},
-  month = {jun},
-  school = {Universit\'e catholique de Louvain},
-  paperpdf={masterthesis_scieur_damien.pdf},
-  abstract={The goal of this mastersthesiser thesis will be firstly to analyze with precision the behavior of the cubic regularization of Newton's method on strongly convex functions. During this analysis we will find that the regularisation does not work as well as expected when the function is also smooth, unlike the gradient method. We will thus propose some variants of the original algorithm in order to have better global performances.}
+  publisher={ACM}
 }
+
+
+
+
+%%%% NIPS %%%%
+
+@inproceedings{abernethy2010repeated,
+  title={Repeated Games against Budgeted Adversaries.},
+  author={Abernethy, Jacob and Warmuth, Manfred K},
+  link={http://papers.nips.cc/paper/4123-repeated-games-against-budgeted-adversaries.pdf},
+  booktitle={(NIPS) Advances in Neural Information Processing Systems},
+  pages={1--9},
+  year={2010}
+}
+
+@inproceedings{abernethy2011collaborative,
+  title={A Collaborative Mechanism for Crowdsourcing Prediction Problems.},
+  author={Abernethy, Jacob and Frongillo, Rafael M},
+  link={https://papers.nips.cc/paper/4382-a-collaborative-mechanism-for-crowdsourcing-prediction-problems.pdf},
+  booktitle={(NIPS) Advances in Neural Information Processing Systems},
+  pages={2600--2608},
+  year={2011}
+}
+
+@inproceedings{abernethy2013hedge,
+  title={How to Hedge an Option Against an Adversary: Black-Scholes Pricing is Minimax Optimal},
+  author={Abernethy, Jacob and Bartlett, Peter and Frongillo, Rafael and Wibisono, Andre},
+  link={http://papers.nips.cc/paper/4912-how-to-hedge-an-option-against-an-adversary-black-scholes-pricing-is-minimax-optimal.pdf},
+  booktitle={(NIPS) Advances in Neural Information Processing Systems},
+  pages={2346--2354},
+  year={2013}
+}
+
+@inproceedings{abernethy2013adaptive,
+  title={Adaptive Market Making via Online Learning},
+  author={Abernethy, Jacob and Kale, Satyen},
+  link={http://papers.nips.cc/paper/4910-adaptive-market-making-via-online-learning.pdf},
+  booktitle={(NIPS) Advances in Neural Information Processing Systems},
+  pages={2058--2066},
+  year={2013}
+}
+
+@inproceedings{mcmahan2013minimax,
+  title={Minimax optimal algorithms for unconstrained linear optimization},
+  author={McMahan, Brendan and Abernethy, Jacob},
+  link={http://papers.nips.cc/paper/5148-minimax-optimal-algorithms-for-unconstrained-linear-optimization.pdf},
+  booktitle={(NIPS) Advances in Neural Information Processing Systems},
+  pages={2724--2732},
+  year={2013}
+}
+
+
+@inproceedings{abernethy15market,
+  author = {Bo Waggoner and Rafael Frongillo and Jacob Abernethy},
+  title = {A Market Framework for Eliciting Private Data},
+  booktitle = {Advances in Neural Information Processing Systems 28},
+  year = {2015},
+  link={https://papers.nips.cc/paper/5995-a-market-framework-for-eliciting-private-data},
+}
+
+
+
+@inproceedings{abernethy15fighting,
+  author = {Jacob Abernethy and Chansoo Lee and Ambuj Tewari},
+  title = {Fighting Bandits with a New Kind of Smoothness},
+  booktitle = {Advances in Neural Information Processing Systems 28},
+  year = {2015},
+  link = {research/abernethy15fighting.pdf}
+}
+
+@inproceedings{abernethy2016threshold,
+  title={Threshold bandits, with and without censored feedback},
+  author={Abernethy, Jacob D and Amin, Kareem and Zhu, Ruihao},
+  booktitle={Advances in Neural Information Processing Systems (To Appear)},
+  link={https://papers.nips.cc/paper/6149-threshold-bandits-with-and-without-censored-feedback},
+  year={2016},
+  pages={4889--4897},
+}
+
+
+@inproceedings{abernethy2016threshold,
+  title={On Frank-Wolfe and Equilibrium Computation},
+  author={Abernethy, Jacob and Wang, Jun-Kun},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2017},
+}
+
+
+
+%%%%% KDD %%%%%
+
+
+@inproceedings{chojnacki2017data,
+  title={A Data Science Approach to Understanding Residential Water Contamination in Flint},
+  author={Chojnacki, Alex and Dai, Chengyu and Farahi, Arya and Shi, Guangsha and Webb, Jared and Zhang, Daniel T and Abernethy, Jacob and Schwartz, Eric},
+  link={http://www.kdd.org/kdd2017/papers/view/a-data-science-approach-to-understanding-residential-water-contamination-in},
+  booktitle={Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  pages={1407--1416},
+  year={2017},
+  organization={ACM}
+}
+
+
+
+
+
+%%%%% EC %%%%%
+
+
+@inproceedings{abernethy2011optimization,
+  title={An optimization-based framework for automated market-making},
+  author={Abernethy, Jacob and Chen, Yiling and Wortman Vaughan, Jennifer},
+  booktitle={(EC) Proceedings of the 12th ACM conference on Electronic commerce},
+  pages={297--306},
+  year={2011},
+  organization={ACM},
+  link={http://web.eecs.umich.edu/~jabernet/ec041-abernethy.pdf},
+}
+
+
+@inproceedings{abernethy2014information,
+  title={Information aggregation in exponential family markets},
+  author={Abernethy, Jacob and Kutty, Sindhu and Lahaie, Sebastien and Sami, Rahul},
+  booktitle={(EC) Proceedings of the 15th ACM conference on Economics and computation},
+  pages={395--412},
+  year={2014},
+  organization={ACM},
+  link={http://arxiv.org/pdf/1402.5458v1.pdf},
+}
+
+@inproceedings{abernethy2014general,
+  title={A general volume-parameterized market making framework},
+  author={Abernethy, Jacob D and Frongillo, Rafael M and Li, Xiaolong and Vaughan, Jennifer Wortman},
+  booktitle={(EC) Proceedings of the 15th ACM conference on Economics and computation},
+  pages={413--430},
+  year={2014},
+  organization={ACM},
+  link={http://research.microsoft.com/pubs/215408/vpm.pdf},
+}
+
+@inproceedings{abernethy2015low,
+  title={Low-cost learning via active data procurement},
+  author={Abernethy, Jacob and Chen, Yiling and Ho, Chien-Ju and Waggoner, Bo},
+  booktitle={Proceedings of the Sixteenth ACM Conference on Economics and Computation},
+  pages={619--636},
+  year={2015},
+  organization={ACM},
+  link={http://dl.acm.org.proxy.lib.umich.edu/citation.cfm?id=2764519},
+}
+
+
+@inproceedings{abernethy2016rate,
+  title={Rate of Price Discovery in Iterative Combinatorial Auctions},
+  author={Abernethy, Jacob and Lahaie, Sebastien and Telgarsky, Matus},
+  booktitle={Proceedings of the 2016 ACM Conference on Economics and Computation},
+  link={http://dl.acm.org/citation.cfm?id=2940772},
+  pages={809--809},
+  year={2016},
+  organization={ACM},
+}
+
+
+
+
+
+
+
+%%%% COLT papers %%%%
+
+
+
+
+@inproceedings{abernethy2006continuous,
+  title={Continuous experts and the binning algorithm},
+  author={Abernethy, Jacob and Langford, John and Warmuth, Manfred K},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://www.cse.ucsc.edu/~manfred/pubs/C73.pdf},
+  year={2006},
+}
+
+
+@inproceedings{abernethy2008optimal,
+  title={Optimal strategies from random walks},
+  author={Abernethy, Jacob and Warmuth, Manfred K and Yellin, Joel},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://web.eecs.umich.edu/~jabernet/121-Abernethy.pdf},
+  year={2008}
+}
+
+
+@inproceedings{abernethy2008competing,
+  title={Competing in the Dark: An Efficient Algorithm for Bandit Linear Optimization.},
+  author={Abernethy, Jacob and Hazan, Elad and Rakhlin, Alexander},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://web.eecs.umich.edu/~jabernet/123-Abernethy.pdf},
+  year={2008},
+  comments={COLT 2008 Best Student Paper Award & 2008 Pat Goldberg Memorial Best Paper Award from IBM}
+}
+
+
+@inproceedings{abernethy2008optimal,
+  title={Optimal strategies and minimax lower bounds for online convex games},
+  author={Abernethy, Jacob and Bartlett, Peter L and Rakhlin, Alexander and Tewari, Ambuj},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://web.eecs.umich.edu/~jabernet/111-Abernethy.pdf},
+  year={2008}
+}
+
+
+
+@inproceedings{abernethy2012characterization,
+  title={A Characterization of Scoring Rules for Linear Properties.},
+  author={Abernethy, Jacob D and Frongillo, Rafael M},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://jmlr.csail.mit.edu/proceedings/papers/v23/abernethy12/abernethy12.pdf},
+  year={2012}
+}
+
+
+@inproceedings{abernethy2007multitask,
+  title={Multitask learning with expert advice},
+  author={Abernethy, Jacob and Bartlett, Peter and Rakhlin, Alexander},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://www.eecs.berkeley.edu/Pubs/TechRpts/2007/EECS-2007-20.pdf},
+  year={2007},
+}
+
+@inproceedings{abernethy2011blackwell,
+  title={Blackwell approachability and low-regret learning are equivalent},
+  author={Abernethy, Jacob and Bartlett, Peter L and Hazan, Elad},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://colt2011.sztaki.hu/colt2011_submission_94.pdf},
+  year={2011},
+}
+
+
+@inproceedings{abernethy2014online,
+  title={Online Linear Optimization via Smoothing},
+  author={Abernethy, Jacob and Lee, Chansoo and Sinha, Abhinav and Tewari, Ambuj},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://arxiv.org/pdf/1405.6076.pdf},
+  year={2014}
+}
+
+
+
+@inproceedings{abernethy2009stochastic,
+  title={A stochastic view of optimal regret through minimax duality},
+  author={Abernethy, Jacob and Agarwal, Alekh and Bartlett, Peter L and Rakhlin, Alexander},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://colt2009.cs.mcgill.ca/papers/026.pdf},
+  year={2009}
+}
+
+
+@inproceedings{abernethy2009beating,
+  title={Beating the adaptive bandit with high probability},
+  author={Abernethy, Jacob and Rakhlin, Alexander},
+  booktitle={(COLT) Conference on Learning Theory},
+  link={http://www.cs.mcgill.ca/~colt2009/papers/025.pdf},
+  year={2009},
+}
+
+
+
+%%%% COLT_open_problems %%%%
+
+
+@misc{abernethy2011does,
+  title={Does an Efficient Calibrated Forecasting Strategy Exist?},
+  author={Abernethy, Jacob and Mannor, Shie},
+  booktitle={(COLT) Conference on Learning Theory},
+  year={2011},
+  link={http://web.eecs.umich.edu/~jabernet/calibration_open_problem.pdf},
+}
+
+@misc{abernethy2009minimax,
+  title={Minimax Games with Bandits.},
+  author={Abernethy, Jacob and Warmuth, Manfred K},
+  booktitle={(COLT) Conference on Learning Theory},
+  year={2009},
+  link={http://web.eecs.umich.edu/~jabernet/banditgame_open_problem.pdf},
+}
+
+@misc{abernethy2010can,
+  title={Can We Learn to Gamble Efficiently?},
+  author={Abernethy, Jacob},
+  booktitle={(COLT) Conference on Learning Theory},
+  year={2010},
+  link={http://web.eecs.umich.edu/~jabernet/OpenProblemAbernethy.pdf},
+}
+
+
+@misc{abernethy2009efficient,
+  title={An Efficient Bandit Algorithm for root-T-Regret in Online Multiclass Prediction?},
+  author={Abernethy, Jacob and Rakhlin, Alexander},
+  booktitle={(COLT) Conference on Learning Theory},
+  year={2009},
+  link={http://web.eecs.umich.edu/~jabernet/multiclass_open_problem.pdf},
+}
+
+
+
+
+
+
+
+
+
+%%%% Other Conference Papers %%%%
+
+
+@inproceedings{abernethy2008web,
+  title={Web spam identification through content and hyperlinks},
+  author={Abernethy, Jacob and Chapelle, Olivier and Castillo, Carlos},
+  booktitle={(AirWeb) Proceedings of the 4th international workshop on Adversarial information retrieval on the web},
+  pages={41--44},
+  year={2008},
+  organization={ACM},
+  link={http://airweb.cse.lehigh.edu/2008/submissions/abernethy_2008_witch_content_links},
+}
+
+
+@inproceedings{rakhlin2007online,
+  title={Online discovery of similarity mappings},
+  author={Rakhlin, Alexander and Abernethy, Jacob and Bartlett, Peter L},
+  booktitle={(ICML) Proceedings of the 24th international conference on Machine learning},
+  pages={767--774},
+  year={2007},
+  organization={ACM},
+  link={http://machinelearning.wustl.edu/mlpapers/paper_files/icml2007_RakhlinAB07.pdf},
+}
+
+
+@inproceedings{abernethy2010regularization,
+  title={A regularization approach to metrical task systems},
+  author={Abernethy, Jacob and Bartlett, Peter L and Buchbinder, Niv and Stanton, Isabelle},
+  booktitle={(ALT) Algorithmic Learning Theory},
+  pages={270--284},
+  year={2010},
+  publisher={Springer Berlin Heidelberg},
+  link={http://web.eecs.umich.edu/~jabernet/alt-mts.pdf},
+}
+
+@article{abernethy2011sequential,
+  title={Sequential Decision Making in Non-stochastic Environments},
+  author={Abernethy, Jacob Duncan},
+  year={2011}
+}
+
+@inproceedings{abernethy2012minimax,
+  title={Minimax option pricing meets black-scholes in the limit},
+  author={Abernethy, Jacob and Frongillo, Rafael M and Wibisono, Andre},
+  booktitle={(STOC) Proceedings of the 44th Symposium on Theory of Computing},
+  pages={1029--1040},
+  year={2012},
+  organization={ACM},
+  link={http://web.eecs.umich.edu/~jabernet/366-abernethy.pdf}
+}
+
+@inproceedings{amin2013large,
+  title={Large-Scale Bandit Problems and $\{$KWIK$\}$ Learning},
+  author={Abernethy, Jacob and Amin, Kareem and Draief, Moez and Kearns, Michael},
+  booktitle={(ICML) Proceedings of the 30th International Conference on Machine Learning},
+  pages={588--596},
+  year={2013},
+  link={http://jmlr.org/proceedings/papers/v28/abernethy13.pdf}
+}
+
+
+@inproceedings{wangjamming,
+  title={Jamming Defense Against a Resource-Replenishing Adversary in Multi-channel Wireless Systems},
+  author={Wang, Qingsi and Sheng, Shang-Pin and Abernethy, Jacob and Liu, Mingyan},
+  booktitle={(WiOpt) International Symposium on Modeling and Optimization in Mobile, Ad Hoc and Wireless Networks},
+  year={2014},
+  link={http://www-personal.umich.edu/~qingsi/papers/wiopt14_minimax_opt.pdf}
+}
+
+
+
+@inproceedings{Abernethy:2015aa,
+  Author = {Jacob Abernethy and M. Johnson-Roberson},
+  Booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  Date-Added = {2013-09-24 14:28:12 +0000},
+  Date-Modified = {2015-07-04 20:15:56 +0000},
+  Keywords = {conf},
+  Note = {accepted 7/2015},
+  Title = {Financialized methods for market-based multi-sensor fusion},
+  Year = {2015},
+  link={http://web.eecs.umich.edu/~jabernet/financialized_methods_sensor_fusion.pdf},
+  }
+
+
+
+@inproceedings{abernethy2015price,
+  title={Price Discovery in Subgradient Combinatorial Auctions},
+  author={Abernethy, Jacob and Lahaie, Sebastien and Telgarsky, Matus},
+  booktitle={Auctions, Market Mechanisms, and Their Applications},
+  year={2015},
+  publisher={AMMA Non-archival Track},
+  link={http://arxiv.org/abs/1511.06017},
+}
+
+
+@inproceedings{azab2016analysing,
+  title={Analysing RateMyProfessors Evaluations Across Institutions, Disciplines, and Cultures: The Tell-Tale Signs of a Good Professor},
+  author={Azab, Mahmoud and Mihalcea, Rada and Abernethy, Jacob},
+  booktitle={International Conference on Social Informatics},
+  pages={438--453},
+  year={2016},
+  organization={Springer International Publishing},
+  link={https://pdfs.semanticscholar.org/41e5/ed6744f1c901a55ee68ea8235d3340e32528.pdf}
+}
+
+@inproceedings{li2016utilizing,
+  title={Utilizing high-dimensional features for real-time robotic applications: Reducing the curse of dimensionality for recursive Bayesian estimation},
+  author={Li, Jie and Ozog, Paul and Abernethy, Jacob and Eustice, Ryan M and Johnson-Roberson, Matthew},
+  booktitle={Intelligent Robots and Systems (IROS), 2016 IEEE/RSJ International Conference on},
+  pages={1230--1237},
+  year={2016},
+  organization={IEEE},
+  link={http://ieeexplore.ieee.org/abstract/document/7759205/}
+}
+
+@inproceedings{abernethy2016faster,
+  title={Faster Convex Optimization: Simulated Annealing with an Efficient Universal Barrier},
+  author={Abernethy, Jacob and Hazan, Elad},
+  link={http://proceedings.mlr.press/v48/abernethy16.html},
+  booktitle={International Conference on Machine Learning},
+  pages={2520--2528},
+  year={2016},
+}
+
+
+
+
+
+%%%% ARXIV %%%%%
+
+
+@article{DBLP:journals/corr/abs-cs-0611124,
+  author    = {Jacob Abernethy and
+               Francis Bach and
+               Theodoros Evgeniou and
+               Jean-Philippe Vert},
+  title     = {Low-rank matrix factorization with attributes},
+  journal   = {CoRR},
+  volume    = {abs/cs/0611124},
+  year      = {2006},
+  ee        = {http://arxiv.org/abs/cs/0611124},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+
+@article{DBLP:journals/corr/abs-0802-1430,
+  author    = {Francis Bach and
+               Jacob Abernethy and
+               Jean-Philippe Vert and
+               Theodoros Evgeniou},
+  title     = {A New Approach to Collaborative Filtering: Operator Estimation
+               with Spectral Regularization},
+  journal   = {CoRR},
+  volume    = {abs/0802.1430},
+  year      = {2008},
+  ee        = {http://arxiv.org/abs/0802.1430},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/abs-0903-5328,
+  author    = {Jacob Abernethy and
+               Alekh Agarwal and
+               Peter L. Bartlett and
+               Alexander Rakhlin},
+  title     = {A Stochastic View of Optimal Regret through Minimax Duality},
+  journal   = {CoRR},
+  volume    = {abs/0903.5328},
+  year      = {2009},
+  ee        = {http://arxiv.org/abs/0903.5328},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/abs-1011-1941,
+  author    = {Jacob Abernethy and
+               Yiling Chen and
+               Jennifer Wortman Vaughan},
+  title     = {An Optimization-Based Framework for Automated Market-Making},
+  journal   = {CoRR},
+  volume    = {abs/1011.1941},
+  year      = {2010},
+  ee        = {http://arxiv.org/abs/1011.1941},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/abs-1011-1936,
+  author    = {Jacob Abernethy and
+               Peter L. Bartlett and
+               Elad Hazan},
+  title     = {Blackwell Approachability and Low-Regret Learning are Equivalent},
+  journal   = {CoRR},
+  volume    = {abs/1011.1936},
+  year      = {2010},
+  ee        = {http://arxiv.org/abs/1011.1936},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/abs-1111-2664,
+  author    = {Jacob Abernethy and
+               Rafael M. Frongillo},
+  title     = {A Collaborative Mechanism for Crowdsourcing Prediction Problems},
+  journal   = {CoRR},
+  volume    = {abs/1111.2664},
+  year      = {2011},
+  ee        = {http://arxiv.org/abs/1111.2664},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/abs-1202-2585,
+  author    = {Jacob Abernethy and
+               Rafael M. Frongillo and
+               Andre Wibisono},
+  title     = {Minimax Option Pricing Meets Black-Scholes in the Limit},
+  journal   = {CoRR},
+  volume    = {abs/1202.2585},
+  year      = {2012},
+  ee        = {http://arxiv.org/abs/1202.2585},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/AbernethyLST14,
+  author    = {Jacob Abernethy and
+               Chansoo Lee and
+               Abhinav Sinha and
+               Ambuj Tewari},
+  title     = {Online Linear Optimization via Smoothing},
+  journal   = {CoRR},
+  volume    = {abs/1405.6076},
+  year      = {2014},
+  ee        = {http://arxiv.org/abs/1405.6076},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/AbernethyKLS14,
+  author    = {Jacob Abernethy and
+               Sindhu Kutty and
+               Sebastien Lahaie and
+               Rahul Sami},
+  title     = {Information Aggregation in Exponential Family Markets},
+  journal   = {CoRR},
+  volume    = {abs/1402.5458},
+  year      = {2014},
+  ee        = {http://arxiv.org/abs/1402.5458},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/corr/AbernethyCHW15,
+  author    = {Jacob D. Abernethy and
+               Yiling Chen and
+               Chien{-}Ju Ho and
+               Bo Waggoner},
+  title     = {Actively Purchasing Data for Learning},
+  journal   = {CoRR},
+  volume    = {abs/1502.05774},
+  year      = {2015},
+  url       = {http://arxiv.org/abs/1502.05774},
+  timestamp = {Mon, 02 Mar 2015 14:17:34 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/AbernethyCHW15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/AbernethyLT15,
+  author    = {Jacob D. Abernethy and
+               Chansoo Lee and
+               Ambuj Tewari},
+  title     = {Spectral Smoothing via Random Matrix Perturbations},
+  journal   = {CoRR},
+  volume    = {abs/1507.03032},
+  year      = {2015},
+  url       = {http://arxiv.org/abs/1507.03032},
+  timestamp = {Sun, 02 Aug 2015 18:42:02 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/AbernethyLT15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/corr/AbernethyH15,
+  author    = {Jacob Abernethy and
+               Elad Hazan},
+  title     = {Faster Convex Optimization: Simulated Annealing with an Efficient
+               Universal Barrier},
+  journal   = {CoRR},
+  volume    = {abs/1507.02528},
+  year      = {2015},
+  url       = {http://arxiv.org/abs/1507.02528},
+  timestamp = {Sun, 02 Aug 2015 18:42:02 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/AbernethyH15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/corr/KodaliAHK17,
+  author    = {Naveen Kodali and
+               Jacob D. Abernethy and
+               James Hays and
+               Zsolt Kira},
+  title     = {How to Train Your {DRAGAN}},
+  journal   = {CoRR},
+  volume    = {abs/1705.07215},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1705.07215},
+  timestamp = {Wed, 07 Jun 2017 14:41:32 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/KodaliAHK17},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/WaggonerFA17,
+  author    = {Bo Waggoner and
+               Rafael M. Frongillo and
+               Jacob D. Abernethy},
+  title     = {Addendum to "A Market Framework for Eliciting Private Data"},
+  journal   = {CoRR},
+  volume    = {abs/1703.00899},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1703.00899},
+  timestamp = {Wed, 07 Jun 2017 14:42:49 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/WaggonerFA17},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{abernethy2016data,
+  title={Data Science in Service of Performing Arts: Applying Machine Learning to Predicting Audience Preferences},
+  author={Abernethy, Jacob and Anderson, Cyrus and Chojnacki, Alex and Dai, Chengyu and Dryden, John and Schwartz, Eric and Shen, Wenbo and Stroud, Jonathan and Wendlandt, Laura and Yang, Sheng and others},
+  journal={arXiv preprint arXiv:1611.05788},
+  year={2016}
+}
+
+
+@article{DBLP:journals/corr/AbernethyADFNRS16,
+  author    = {Jacob D. Abernethy and
+               Cyrus Anderson and
+               Chengyu Dai and
+               Arya Farahi and
+               Linh Nguyen and
+               Adam Rauh and
+               Eric Schwartz and
+               Wenbo Shen and
+               Guangsha Shi and
+               Jonathan Stroud and
+               Xinyu Tan and
+               Jared Webb and
+               Sheng Yang},
+  url       = {http://arxiv.org/abs/1610.00580},
+  title     = {Flint Water Crisis: Data-Driven Risk Assessment Via Residential Water
+               Testing},
+  journal   = {CoRR},
+  volume    = {abs/1610.00580},
+  year      = {2016},
+  timestamp = {Wed, 07 Jun 2017 14:40:31 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/AbernethyADFNRS16},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+
+
+
+
+
+
+
