@@ -172,6 +172,21 @@ footer {
   width: 100%;
 }
 
+footer a {
+  padding-left: 1%;
+}
+
+.page-footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgb(150, 150, 150, 0.5);
+}
+
+.page-footer img {
+  float: left;
+  width: 60px;
+}
+
 @media only screen and (max-width: 882px) {
   /* For mobile phones: */
   [class*="custom-col"] {
