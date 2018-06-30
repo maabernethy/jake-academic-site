@@ -3,6 +3,18 @@
 
 {{reference}}
 
+<div>
+
+{% if entry.paperpdf %}
+  <a href="{{ site.url }}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank">[PDF]</a>
+{% endif %}
 {% if entry.link %}
   <a href="{{entry.link}}" target="_blank">[PDF]</a>
 {% endif %}
+
+{% if entry.abstract %}
+    <a class="collapse"> [Abstract] </a>
+    <div class="abstract" style="display:none"><span>{{entry.abstract}}</span></div>
+{% endif %}
+
+</div>

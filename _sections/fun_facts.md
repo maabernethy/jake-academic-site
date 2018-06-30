@@ -1,6 +1,6 @@
 ---
 title: Fun Facts
-include: sections/fun_facts.html
+include: sections/default.html
 order: 5
 link_id: fun_facts
 ---

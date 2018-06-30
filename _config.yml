@@ -11,6 +11,9 @@ scholar:
   bibliography_template: bibliography
   sort_by: year,month
   order: descending
+  group_by: type
+  type_names: { inproceedings: Conference and Workshop Papers, misc: Open Problems, article: Journal Papers, techreport: Technical Report }
+
 markdown: kramdown
 permalink: pretty
 collections:

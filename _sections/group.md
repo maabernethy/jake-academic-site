@@ -1,6 +1,6 @@
 ---
 title: Research Group
-include: sections/group.html
+include: sections/default.html
 order: 1
 link_id: group
 ---

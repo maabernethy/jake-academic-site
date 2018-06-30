@@ -1,6 +1,6 @@
 ---
 title: Teaching
-include: sections/teaching.html
+include: sections/default.html
 order: 5
 link_id: teaching
 ---

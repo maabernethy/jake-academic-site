@@ -1,6 +1,6 @@
 ---
 title: News
-include: sections/news.html
+include: sections/default.html
 order: 4
 link_id: news
 ---
