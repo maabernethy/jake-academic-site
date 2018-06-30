@@ -35,11 +35,7 @@ h5 {
   background: #30415D;
 }
 
-.tabs .tab a {
-  color: #ADD6E9;
-  text-overflow: unset;
-}
-
+.tabs .tab a { color: #ADD6E9; text-overflow: unset; } 
 .tab a:hover {
   color: #C25B56;
 }
@@ -53,7 +49,7 @@ h5 {
   display: none;
 }
 
-img {
+.heading img {
   width: 320px;
   float: right;
 }
@@ -163,11 +159,11 @@ div.gallery-team {
 }
 
 .gallery-team .former {
-  height: 325px;
+  height: 120px;
 }
 
 .gallery-team .current {
-  height: 200px;
+  height: 50px;
 }
 
 div.gallery {
@@ -226,6 +222,48 @@ footer a {
   color: #C25B56;
 }
 
+.page-footer .content {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+
+@media only screen and (max-width: 1559px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1370px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1166px) {
+  .container {
+    width: unset;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  footer a {
+    padding-left: 5%;
+  }
+}
+
 @media only screen and (max-width: 882px) {
   /* For mobile phones: */
   [class*="custom-col"] {
@@ -260,32 +298,11 @@ footer a {
   }
 }
 
-@media only screen and (max-width: 1559px) {
-  .container {
-    width: 75%;
-  }
-}
-
-@media only screen and (max-width: 1450px) {
-  .container {
-    width: 80%;
-  }
-}
-
-@media only screen and (max-width: 1370px) {
-  .container {
-    width: 85%;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .container {
+@media only screen and (max-width: 340px) {
+  .heading img {
     width: 95%;
   }
-}
-
-@media only screen and (max-width: 1166px) {
-  .container {
-    width: 100%;
+  .heading .name {
+    font-size: 40px;
   }
 }
