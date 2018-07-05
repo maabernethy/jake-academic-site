@@ -1,7 +1,7 @@
 ---
 title: Publications
 include: sections/default.html
-order: 2
+order: 3
 link_id: publications
 layout: default
 ---

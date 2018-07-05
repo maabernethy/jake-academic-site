@@ -1,7 +1,7 @@
 ---
 title: Conferences
 include: sections/default.html
-order: 3
+order: 4
 link_id: conferences
 ---
 

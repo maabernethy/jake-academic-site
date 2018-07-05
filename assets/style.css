@@ -27,7 +27,7 @@ h5 {
   margin: 0;
 }
 
-#home {
+#landing {
   background: #30415D;
 }
 
@@ -97,7 +97,7 @@ h5 {
   padding-bottom: 2%;
 }
 
-#publications h2, #group h1, #conferences h1, #fun_facts h1, #news h1, #teaching h1 {
+#publications h2, #group h1, #conferences h1, #fun_facts h1, #home h1, #teaching h1 {
   padding-top: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
