@@ -97,7 +97,7 @@ h5 {
   padding-bottom: 2%;
 }
 
-#publications h2, #group h1, #conferences h1, #fun_facts h1, #home h1, #teaching h1 {
+#publications h2, #group h1, #talks h1, #fun_facts h1, #home h1, #teaching h1 {
   padding-top: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -167,7 +167,7 @@ div.gallery-team {
 }
 
 div.gallery {
-  margin: 5px;
+  margin: 30px;
   float: left;
   width: 300px;
 }
@@ -177,9 +177,19 @@ div.gallery img {
   height: 195px;
 }
 
+div.gallery img:hover {
+  border: 1px solid #777;
+}
+
 .gallery .desc {
   padding: 15px;
   text-align: center;
+}
+
+.gallery .desc a {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .collapse:hover {

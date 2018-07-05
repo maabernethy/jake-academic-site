@@ -15,6 +15,7 @@ scholar:
   type_names: { inproceedings: Conference and Workshop Papers, misc: Open Problems, article: Journal Papers, techreport: Technical Report }
 
 markdown: kramdown
+mathjax: true
 permalink: pretty
 collections:
   - sections

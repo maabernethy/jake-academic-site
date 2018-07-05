@@ -1,6 +1,13 @@
 <div class="gallery">
-  <a target="_blank" href="{{include.link}}">
-    <img src="{{include.path}}" alt="{{include.description}}">
+  {% if include.link != null %}
+    <a target="_blank" href="{{include.link}}">
+  {% else %}
+    <a target="_blank" href="{{site.baseurl}}/slides/{{include.slides}}">
+  {% endif %}
+    <img src="{{include.img}}" alt="{{include.description}}">
   </a>
-  <div class="desc">{{include.description}}</div>
+  <div class="desc">
+    <a href="{{include.loc_link}}">{{include.loc_name}}</a>
+    <div>{{include.description}}</div>
+  </div>
 </div>
