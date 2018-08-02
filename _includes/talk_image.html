@@ -2,12 +2,12 @@
   {% if include.link != null %}
     <a target="_blank" href="{{include.link}}">
   {% else %}
-    <a target="_blank" href="{{site.baseurl}}/slides/{{include.slides}}">
+    <a target="_blank" href="{{site.baseurl}}/slides/{{include.slides}}/versions/v{{include.version}}">
   {% endif %}
     <img src="{{include.img}}" alt="{{include.description}}">
   </a>
   <div class="desc">
-    <a href="{{include.loc_link}}">{{include.loc_name}}</a>
+    <a target="_blank" href="{{include.loc_link}}">{{include.loc_name}}</a>
     <div>{{include.description}}</div>
   </div>
 </div>

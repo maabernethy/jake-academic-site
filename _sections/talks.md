@@ -8,7 +8,44 @@ link_id: talks
 # Talks
 
 {% include talk_image.html
-  slides="ec16_price_discovery"
+  slides="gameplaying_gatech_2017"
+  version="1"
+  img="/assets/images/talks/googleZurich2018.png"
+  description="Building Algorithms by Playing Games"
+  loc_name="Google Zurich"
+  loc_link="https://talksat.withgoogle.com/explore"
+%}
+
+{% include talk_image.html
+  slides="Chernoff"
+  version="1"
+  img="/assets/images/talks/Chernoff2018.png"
+  description="Deviation Inequalities in Machine Learning"
+  loc_name="Herman Chernoff Symposium"
+  loc_link="https://statistics.fas.harvard.edu/event/celebrating-foundations-and-impact-statistics-symposium-honoring-95th-birthday"
+%}
+
+{% include talk_image.html
+  slides="online_learning_finance_2sigma"
+  version="1"
+  img="/assets/images/talks/twoSigma2018.png"
+  description="Online Learning, Regret, and Finance"
+  loc_name="Two Sigma - New York, NY"
+  loc_link="https://www.twosigma.com/"
+%}
+
+{% include talk_image.html
+  slides="GoogleIn8"
+  version="1"
+  img="/assets/images/talks/GoogleIn8.png"
+  description="Learning, Optimization, and the Benefits of Noise"
+  loc_name="Google"
+  loc_link="https://talksat.withgoogle.com/explore"
+%}
+
+{% include talk_image.html
+  slides="EC_2016_combinatorial_auctions"
+  version="1"
   img="/assets/images/talks/ec2016.png"
   description="Price Discovery in Subgradient Combinatorial Auctions"
   loc_name="EC 2016"
@@ -16,7 +53,8 @@ link_id: talks
 %}
 
 {% include talk_image.html
-  slides="bigdata16_data_science"
+  slides="BDSI_2016"
+  version="1"
   img="/assets/images/talks/bigdata2016.png"
   description="Data Science and the Flint Water Crisis"
   loc_name="Big Data Summer Institute 2016 Symposium"
@@ -24,7 +62,8 @@ link_id: talks
 %}
 
 {% include talk_image.html
-  slides="icml16_faster_convex"
+  slides="ICML_newton_sampling"
+  version="1"
   img="/assets/images/talks/icml2016.png"
   description="Faster Convex Optimization: Simulated Annealing with an
   Efficient Universal Barrier"

@@ -1,0 +1,33 @@
+<img src="images/datalogix.png" style="height: 2em"> &nbsp; &nbsp;
+<img src="images/axciom.png" style="height: 2em">
+* Predictions are traded in market settings &nbsp; &nbsp; <img src="images/betfair.jpg" style="height: 2em"> &nbsp; &nbsp;  <img src="images/google_prediction_api.png"  style="height: 2em">
+<img src="images/ec2.png" style="height: 2em"> &nbsp; &nbsp; 
+<img src="images/google_cloud.png" style="height: 1.7em">
+<img src="images/kaggle.png" style="height: 2em"> &nbsp; &nbsp; 
+<img src="images/netflix_prize_logo.png" style="height: 2em">
+<img src="images/alphago.png" width=30%>
+<img src="images/alphago.jpg" width=12%>
+<img src="images/go_playout.png" width=50% 
+<img src="images/mm_scholes.jpg" width=90%>
+<img src="images/stock_prices.jpg" width=90%>
+<img src="images/option_payout.png" width=30%> &nbsp;&nbsp;&nbsp;&nbsp;
+<img src="images/price_pathbase.png" width=40%>
+<img src="images/price_pathbase.png" width=45%>
+<img src="images/animated_price_paths.gif" width=45%>
+<center><img src="images/contour_lin1.png" width=80%></center>
+<center><img src="images/counter_5.png" width=80%>
+  <img src="images/animated_contour.gif" width=70% style="padding-top:50px">
+  <img src="images/animated_central_path.gif" width=45%>
+<center><img src="images/Hill_Climbing_with_Simulated_Annealing.gif"></center>
+  <img src="images/animated_samples.gif" width=55%>
+  <img src="images/testnew51.gif" width=45%>
+.right-column[<img src="images/animated_ellipsoids.gif" width=90%>]
+  <img src="images/animated_central_path.gif" width=90% style="padding:10px">
+<img src="images/mdst.png" align='right' width=24%>
+<img src="images/MDST-team.jpg" width=42%/>
+<img src="images/mdst_big.jpg" width=56%/>
+<center><img src="images/rmp_challenge.png" width=60%>
+<center><img src="images/animated_drunk_driving.gif" width=40%>
+<img src="images/flint_water.png" width=40%>
+<img src="images/hydrant.png" width=24%>
+<img src="images/land_value_lead.png", width=30%>
