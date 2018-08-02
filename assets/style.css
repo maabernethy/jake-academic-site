@@ -140,7 +140,9 @@ h4.about {
 }
 
 div.gallery-team img:hover {
-  border: 1px solid #777;
+  -moz-box-shadow: 0 0 10px #ccc;
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 20px #ccc;
 }
 
 div.gallery-team img {
