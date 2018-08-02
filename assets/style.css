@@ -97,6 +97,10 @@ h5 {
   padding-bottom: 2%;
 }
 
+#publications .comment {
+  text-align: center;
+}
+
 #publications h2, #group h1, #talks h1, #fun_facts h1, #home h1, #teaching h1 {
   padding-top: 0px;
   margin-top: 0px;
@@ -238,6 +242,8 @@ footer a {
   padding-left: 4%;
   padding-right: 4%;
 }
+
+
 
 
 @media only screen and (max-width: 1559px) {
