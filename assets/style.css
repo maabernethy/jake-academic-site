@@ -117,8 +117,24 @@ h5 {
   padding-top: 7%;
 }
 
-#group ul, #publications ol {
-  padding-left: 7%;
+#group ul, #publications ol, #teaching table {
+  margin-left: 7%;
+}
+
+#teaching table {
+  width: 85%;
+}
+
+#teaching a {
+  background-color:#C25B56;
+}
+
+#publications a {
+  background-color:#C25B56;
+}
+
+.card-panel {
+  background-color: #30415D;
 }
 
 #group li {
@@ -164,12 +180,39 @@ div.gallery-team {
   padding-bottom: 5px;
 }
 
-.gallery-team .former {
-  height: 120px;
+.btn-small {
+  height: 25px;
+  line-height: 25px;
+  padding: 0 .5rem;
 }
 
-.gallery-team .current {
-  height: 50px;
+#group .card {
+  width: 200px;
+  float: left;
+  margin: 40px;
+}
+
+.card .card-content {
+  padding: 15px;
+}
+
+.former {
+  height: 380px;
+}
+
+.current {
+  height: 291px;
+}
+
+#talks .card {
+  margin: 30px;
+  float: left;
+  width: 310px;
+  height: 387px;
+}
+
+.card .card-title {
+  font-size: 20px;
 }
 
 div.gallery {

@@ -90,7 +90,7 @@ link_id: talks
 {% include talk_image.html
   link="http://videolectures.net/nips2011_abernethy_prediction/"
   img="/assets/images/talks/nips2011.jpg"
-  description="NIPS 2011: A Collaborative Mechanism for Crowdsourcing Prediction Problems"
+  description="A Collaborative Mechanism for Crowdsourcing Prediction Problems"
   loc_name="NIPS 2011"
   loc_link="https://nips.cc/Conferences/2011"
 %}
@@ -98,7 +98,7 @@ link_id: talks
 {% include talk_image.html
   link="http://videolectures.net/colt2011_abernethy_learning/"
   img="/assets/images/talks/colt2011.jpg"
-  description="COLT 2011: Blackwell Approachability and No-Regret Learning are Equivalent"
+  description="Blackwell Approachability and No-Regret Learning are Equivalent"
   loc_name="COLT 2011"
   loc_link="http://www.conferences.hu/colt2011/"
 %}

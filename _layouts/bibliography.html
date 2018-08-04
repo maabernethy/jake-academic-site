@@ -4,17 +4,18 @@
 {{reference}}
 
 <div>
-
 {% if entry.paperpdf %}
-  <a href="{{ site.url }}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank">[PDF]</a>
+  <a href="{{ site.url }}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
 {% endif %}
 {% if entry.link %}
-  <a href="{{entry.link}}" target="_blank">[PDF]</a>
+  <a href="{{entry.link}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
 {% endif %}
 
 {% if entry.abstract %}
-    <a class="collapse"> [Abstract] </a>
-    <div class="abstract" style="display:none"><span>{{entry.abstract}}</span></div>
+    <a class="waves-effect waves-teal btn btn-small collapse"> Abstract </a>
+    <div class="card-panel abstract" style="display:none">
+      <span class="white-text">{{entry.abstract}}</span>
+    </div>
 {% endif %}
 
 

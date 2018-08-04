@@ -1,13 +1,15 @@
-<div class="gallery">
-  {% if include.link != null %}
-    <a target="_blank" href="{{include.link}}">
-  {% else %}
-    <a target="_blank" href="{{site.baseurl}}/slides/{{include.slides}}/versions/v{{include.version}}">
-  {% endif %}
-    <img src="{{include.img}}" alt="{{include.description}}">
-  </a>
-  <div class="desc">
-    <a target="_blank" href="{{include.loc_link}}">{{include.loc_name}}</a>
-    <div>{{include.description}}</div>
+<div class="card hoverable">
+  <div class="card-image">
+    {% if include.link != null %}
+      <a target="_blank" href="{{include.link}}">
+    {% else %}
+      <a target="_blank" href="{{site.baseurl}}/slides/{{include.slides}}/versions/v{{include.version}}">
+    {% endif %}
+      <img src="{{include.img}}">
+    </a>
+  </div>
+  <div class="card-content">
+    <span class="card-title"><a href="{{include.loc_link}}">{{include.loc_name}}</a></span>
+    <p>{{include.description}}</p>
   </div>
 </div>
