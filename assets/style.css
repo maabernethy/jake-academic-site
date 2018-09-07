@@ -273,6 +273,10 @@ div.gallery img:hover {
   cursor: pointer;
 }
 
+#fun_facts .card-panel {
+  background-color: #30415D;
+}
+
 body {
   display: flex;
   min-height: 100vh;

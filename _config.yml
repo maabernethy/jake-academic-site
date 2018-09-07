@@ -1,7 +1,8 @@
 theme: jekyll-material-theme
 
-baseurl: # If your site is located at /blog or /home, change it here, otherwise leave it empty
-url: http://localhost:4000/ # The URL of your site
+# url: https://www.cc.gatech.edu
+url: http://localhost:4000/
+baseurl: #/~jabernethy9
 
 syntax_highlighting: true # include the css for syntax highlighting
 
