@@ -97,10 +97,6 @@ h5 {
   padding-bottom: 2%;
 }
 
-#publications .comment {
-  text-align: center;
-}
-
 #publications h2, #group h1, #talks h1, #fun_facts h1, #home h1, #teaching h1 {
   padding-top: 0px;
   margin-top: 0px;
@@ -131,10 +127,6 @@ h5 {
 
 #publications a {
   background-color:#C25B56;
-}
-
-.card-panel {
-  background-color: #30415D;
 }
 
 #group li {
@@ -289,6 +281,9 @@ footer a {
   padding-right: 4%;
 }
 
+.waves-effect.waves-blue .waves-ripple {
+  background-color: rgba(48, 65, 93, 0.65);
+}
 
 @media only screen and (max-width: 1559px) {
   .container {
