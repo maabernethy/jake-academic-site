@@ -277,6 +277,17 @@ div.gallery img:hover {
   background-color: #30415D;
 }
 
+#home .sticky-action {
+  width: 30em;
+}
+
+.waves-effect, .waves-effect img, .card.sticky-action .card-action, .card.sticky-action .card-reveal {
+  z-index: unset;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #C25B56;
+}
+
 body {
   display: flex;
   min-height: 100vh;
