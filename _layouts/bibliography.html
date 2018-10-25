@@ -5,7 +5,7 @@
 
 <div>
 {% if entry.paperpdf %}
-  <a href="{{ site.url }}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
+  <a href="{{ site.url }}{{site.baseurl}}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
 {% endif %}
 {% if entry.link %}
   <a href="{{entry.link}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>

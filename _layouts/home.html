@@ -65,16 +65,16 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/assets/js/materialize.min.js"></script>
+    <script type="text/javascript" src={{ '/assets/js/jquery-3.2.1.min.js' | relative_url }}></script>
+    <script type="text/javascript" src={{ '/assets/js/materialize.min.js' | relative_url }}></script>
     <script src="/assets/js/init.js"></script>
 </main>
 <footer class="page-footer">
     <div class="content">
-      <img src="/assets/images/Georgia_Tech_logo.svg.png"></img>
+      <img src={{'/assets/images/Georgia_Tech_logo.svg.png' | relative_url }}></img>
       <a class="right" href="https://scholar.google.com/citations?user=FDu4ciwAAAAJ&hl=en" target="_blank">Google Scholar</a>
       <a class="right" href="https://github.com/thejakeyboy" target="_blank">GitHub</a>
-      <a class="right" href="/pdf/Resume.pdf" target="_blank">Resume</a>
+      <a class="right" href={{'/pdf/Resume.pdf' | relative_url }} target="_blank">Resume</a>
     </div>
 </footer>
 

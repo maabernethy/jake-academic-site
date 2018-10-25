@@ -3,7 +3,7 @@
     {% if include.link != null %}
       <a target="_blank" href="{{include.link}}">
     {% else %}
-      <a target="_blank" href="{{site.baseurl}}/slides/{{include.slides}}/versions/v{{include.version}}">
+      <a target="_blank" href="{{site.url}}{{site.baseurl}}/slides/{{include.slides}}/versions/v{{include.version}}">
     {% endif %}
       <img src="{{include.img}}">
     </a>
