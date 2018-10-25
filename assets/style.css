@@ -33,8 +33,14 @@ h5 {
   margin: 0;
 }
 
-#flint h1, #flint h3 {
+#flint h1, #flint h3, #flint h4 {
   text-align: center;
+}
+
+#flint h4 {
+  font-family: 'Raleway';
+  font-size: 20px;
+  color: black;
 }
 
 #flint {
