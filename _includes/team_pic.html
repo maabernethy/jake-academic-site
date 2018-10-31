@@ -1,7 +1,7 @@
 <div class="card hoverable {{include.type}}">
     <div class="card-image">
       <a target="_blank" href="{{include.link}}">
-        <img src="{{include.path}}" alt="{{include.description}}">
+        <img src="{{include.path | relative_url}}" alt="{{include.description}}">
       </a>
     </div>
     <div class="card-content">

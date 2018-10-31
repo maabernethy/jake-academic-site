@@ -2,7 +2,7 @@ theme: jekyll-material-theme
 
 # url: https://www.cc.gatech.edu
 url: http://localhost:4000/
-baseurl: #/~jabernethy9
+baseurl: /~jabernethy9
 
 syntax_highlighting: true # include the css for syntax highlighting
 
