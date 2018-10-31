@@ -5,7 +5,7 @@
     {% else %}
       <a target="_blank" href="{{site.url}}{{site.baseurl}}/slides/{{include.slides}}/versions/v{{include.version}}">
     {% endif %}
-      <img src="{{include.img}}">
+      <img src="{{include.img | relative_url}}">
     </a>
   </div>
   <div class="card-content">
