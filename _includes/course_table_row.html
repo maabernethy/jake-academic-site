@@ -1,8 +1,14 @@
 <tr>
   <td>{{include.number}}</td>
-  <td>{{include.year}}</td>
   <td>{{include.name}}</td>
+  <td>{{include.institution}}</td>
+  <td>{{include.year}}</td>
   <td>
-    <a href="{{include.link}}" class="waves-effect waves-light btn">VIEW</a>
+  	{% if include.link And include.link != "" And include.link != nil %}
+  		<a href="{{include.link}}" class="waves-effect waves-light btn">VIEW</a>
+  	{% else %}
+  		&nbsp;
+  	{% endif %}
+    
   </td>
 </tr>
