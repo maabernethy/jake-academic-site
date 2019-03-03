@@ -94,8 +94,8 @@ h5 {
 }
 
 .contact {
-  text-align: right;
-  float: right;
+  text-align: left;
+  float: left;
   display: inline-block;
   margin-top: 3px;
 }
