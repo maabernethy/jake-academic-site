@@ -27,5 +27,3 @@ My research focus is Machine Learning, and I like discovering connections betwee
   reveal_title="Flint Portfolio"
   reveal="In collaboration with my colleague and friend, Prof. Eric Schwartz, and with the help of several talented students as part of the Michigan Data Science Team, we have contributed a great deal of statistical and data-oriented work towards recovery efforts in Flint's water crisis. View my Flint portfolio to see all related articles"
 %}
-
-### PUT YOUR NOTES HERE

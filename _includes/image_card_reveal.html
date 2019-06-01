@@ -7,8 +7,8 @@
     <p>{{include.author}}</p>
   </div>
   <div class="card-action">
-    <a href="/flint">View My Flint Portfolio</a>
-    <a href="{{include.link}}">View Article</a>
+    <a href="{{ "/flint" | relative_url }}">View My Flint Portfolio</a>
+    <a href="{{ include.link | relative_url }}">View Article</a>
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">{{include.reveal_title}}<i class="material-icons right">close</i></span>
