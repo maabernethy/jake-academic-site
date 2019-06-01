@@ -1,9 +1,9 @@
 <div class="card hoverable">
   <div class="card-image">
     {% if include.link != null %}
-      <a target="_blank" href="{{include.link | relative_url }}">
+      <a target="_blank" href="{{ include.link | relative_url }}">
     {% else %}
-      <a target="_blank" href="{{site.url}}{{site.baseurl}}/slides/{{include.slides}}/versions/v{{include.version}}">
+      <a target="_blank" href="{{ include.slides | relative_url }}">
     {% endif %}
       <img src="{{include.img | relative_url}}">
     </a>
