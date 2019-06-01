@@ -5,7 +5,7 @@
   <td>{{include.year}}</td>
   <td>
   	{% if include.link And include.link != "" And include.link != nil %}
-  		<a href="{{include.link}}" class="waves-effect waves-light btn">VIEW</a>
+  		<a href="{{include.link | relative_url }}" class="waves-effect waves-light btn">VIEW</a>
   	{% else %}
   		&nbsp;
   	{% endif %}
