@@ -560,6 +560,28 @@
 
 
 
+
+
+@InProceedings{pmlr-v97-cardoso19a,
+  title =    {Competing Against {N}ash Equilibria in Adversarially Changing Zero-Sum Games},
+  author =   {Cardoso, Adrian Rivera and Abernethy, Jacob and Wang, He and Xu, Huan},
+  booktitle =    {Proceedings of the 36th International Conference on Machine Learning},
+  pages =    {921--930},
+  year =   {2019},
+  editor =   {Chaudhuri, Kamalika and Salakhutdinov, Ruslan},
+  volume =   {97},
+  series =   {Proceedings of Machine Learning Research},
+  address =    {Long Beach, California, USA},
+  month =    {09--15 Jun},
+  publisher =    {PMLR},
+  pdf =    {http://proceedings.mlr.press/v97/cardoso19a/cardoso19a.pdf},
+  url =    {http://proceedings.mlr.press/v97/cardoso19a.html},
+  abstract =   {We study the problem of repeated play in a zero-sum game in which the payoff matrix may change, in a possibly adversarial fashion, on each round; we call these Online Matrix Games. Finding the Nash Equilibrium (NE) of a two player zero-sum game is core to many problems in statistics, optimization, and economics, and for a fixed game matrix this can be easily reduced to solving a linear program. But when the payoff matrix evolves over time our goal is to find a sequential algorithm that can compete with, in a certain sense, the NE of the long-term-averaged payoff matrix. We design an algorithm with small NE regret–that is, we ensure that the long-term payoff of both players is close to minimax optimum in hindsight. Our algorithm achieves near-optimal dependence with respect to the number of rounds and depends poly-logarithmically on the number of available actions of the players. Additionally, we show that the naive reduction, where each player simply minimizes its own regret, fails to achieve the stated objective regardless of which algorithm is used. Lastly, we consider the so-called bandit setting, where the feedback is significantly limited, and we provide an algorithm with small NE regret using one-point estimates of each payoff matrix.}
+}
+
+
+
+
 %%%% ARXIV %%%%%
 
 
@@ -806,6 +828,14 @@
   journal={arXiv preprint arXiv:1805.06792},
   year={2018}
   }
+
+@article{ALW19,
+  Author = {Jacob Abernethy and Kevin A. Lai and Andre Wibisono},
+  Date-Added = {2019-06-10 13:04:00 -0400},
+  Date-Modified = {2019-06-10 13:04:07 -0400},
+  Journal = {arXiv preprint arXiv:1906.02027},
+  Title = {Last-iterate convergence rates for min-max optimization},
+  Year = {2019}}
 
 
 
