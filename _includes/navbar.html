@@ -1,7 +1,10 @@
 <nav id='navbar'>
-  <span><a href='/' class='name'>Jacob Abernethy</a></span>
-  <span><a href='/people'>People</a></span>
-  <span><a href='/publications'>Publications</a></span>
-  <span><a href='/talks'>Talks</a></span>
-  <span><a href='/teacher'>Teaching</a></span>
+  <span class='name'>
+    <a href={{'/' | relative_url }}>Jacob Abernethy</a>
+    <span class='big-underline'></span>
+  </span>
+  <span><a href={{'/people' | relative_url }}>People</a></span>
+  <span><a href={{'/publications' | relative_url }}>Publications</a></span>
+  <span><a href={{'/talks' | relative_url }}>Talks</a></span>
+  <span><a href={{'/teaching' | relative_url }}>Teaching</a></span>
 </nav>

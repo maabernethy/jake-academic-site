@@ -8,13 +8,19 @@ body {
 }
 
 main {
-  padding: 10px 20px;
+  padding: 10px 50px;
   flex: 1 0 auto;
 
   #navbar {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    .big-underline {
+      width: 185px;
+      height: 10px;
+    }
   }
 
   #landing {
@@ -48,6 +54,11 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+  }
 
   .middle {
     height: 100%;

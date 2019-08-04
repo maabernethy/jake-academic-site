@@ -30,10 +30,22 @@ main {
 
   a {
     color: $black-text;
+
+    &:hover {
+      border-bottom: 5px solid $gold-highlight;
+    }
   }
 
   .name {
-    color: $purple-highlight;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: $purple-highlight;
+    }
+    .big-underline {
+      background-color: $gold-highlight;
+    }
   }
 }
 
