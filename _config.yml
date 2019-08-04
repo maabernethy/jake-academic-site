@@ -1,5 +1,9 @@
 theme: jekyll-material-theme
 
+sass:
+  sass_dir: _sass
+  style: compressed
+
 # url: https://www.cc.gatech.edu
 url: http://localhost:4000/
 baseurl: /~jabernethy9

@@ -1,0 +1,47 @@
+$grey-background: #EDEAEA;
+$purple-highlight: #403E56;
+$gold-highlight: #B3A465;
+$light-grey-text: #B0B0B0;
+$grey-text: #828282;
+$dark-text: #3C3C3C;
+$black-text: #000000;
+
+body {
+  background-color: $grey-background;
+}
+
+main {
+  background-color: $grey-background;
+  color: $black-text;
+
+  a {
+    text-decoration: underline;
+    color: $purple-highlight;
+  }
+
+  h3 {
+    color: $grey-text;
+  }
+}
+
+
+#navbar {
+  background-color: $grey-background;
+
+  a {
+    color: $black-text;
+  }
+
+  .name {
+    color: $purple-highlight;
+  }
+}
+
+#footer {
+  background-color: $purple-highlight;
+  color: $light-grey-text;
+
+  .icon {
+    color: $light-grey-text;
+  }
+}

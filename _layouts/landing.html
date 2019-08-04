@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+<main>
+  {% include navbar.html %}
+    <div id="landing">
+      <div class='left-section'>
+        <img class='profile-pic' src={{'/assets/images/jake_profile.jpg' | relative_url }}></img>
+      </div>
+      <div class='right-section'>
+        <div class='intro'>
+          <p>
+            I am an Assistant Professor in the School of Computer Science
+            in the College of Computing at the Georgia Institute of Technology.
+          </p>
+          <p>
+            My research focus is Machine Learning, and I like discovering
+            connections between Optimization, Statistics, and Economics.
+            I finished my PhD at UC Berkeley with Peter Bartlett in 2011,
+            and I was a Simons postdoctoral fellow with Michael Kearns for
+            the following two years.
+          </p>
+        </div>
+        <div class='section-view-all'>
+          <h3>Recent Publications</h3>
+          <a href='/publications' class='bold'>
+            view all
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+        <div class='publications'>
+          <p>
+            Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., & Webb, J. (2018). ActiveRemediation: The Search for Lead Pipes in Flint, Michigan. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (pp. 5–14). ACM.
+          </p>
+          <p>
+            Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., & Webb, J. (2018). ActiveRemediation: The Search for Lead Pipes in Flint, Michigan. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (pp. 5–14). ACM.
+          </p>
+          <p>
+            Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., & Webb, J. (2018). ActiveRemediation: The Search for Lead Pipes in Flint, Michigan. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (pp. 5–14). ACM.
+          </p>
+        </div>
+      </div>
+    </div>
+</main>
+{% include footer.html %}
+</html>
