@@ -16,12 +16,13 @@ link_id: group
 %}
 
 {% include team_pic.html
-  name="Naveen Kodali"
-  link="https://scholar.google.com/citations?user=dSRtMK0AAAAJ&hl=en"
-  path="/assets/images/group/naveen-200px.jpeg"
+  name="Zihao Hu"
+  link="https://zihaohu.github.io/"
+  path="/assets/images/group/zihaohu-200px.jpg"
   description="PhD Student"
   type="current"
 %}
+
 
 {% include team_pic.html
   name="Bhuvesh Kumar"
@@ -47,6 +48,7 @@ link_id: group
   type="current"
 %}
 
+
 {% include team_pic.html
   name="Andre Wibisono"
   link="http://people.eecs.berkeley.edu/~wibisono/"
@@ -55,14 +57,21 @@ link_id: group
   type="current"
 %}
 
+{% include team_pic.html
+  name="Yeo Joon Youn"
+  path="/assets/images/group/yeojoonyoun-200px.jpg"
+  description="PhD Student"
+  type="current"
+%}
+
 # Former students and postdocs
 
 {% include team_pic.html
-  name="Ruihao Zhu"
-  link="http://web.mit.edu/rzhu/www/"
-  path="/assets/images/group/ruihao-200px.jpg"
-  description="former PhD Student, currently completing PhD at MIT"
-  type="former"
+  name="Naveen Kodali"
+  link="https://scholar.google.com/citations?user=dSRtMK0AAAAJ&hl=en"
+  path="/assets/images/group/naveen-200px.jpeg"
+  description="Former PhD student, now works at Apple"
+  type="current"
 %}
 
 {% include team_pic.html
@@ -72,6 +81,15 @@ link_id: group
   description="Received PhD in 2018, now at Google"
   type="former"
 %}
+
+{% include team_pic.html
+  name="Ruihao Zhu"
+  link="http://web.mit.edu/rzhu/www/"
+  path="/assets/images/group/ruihao-200px.jpg"
+  description="former PhD Student, currently completing PhD at MIT"
+  type="former"
+%}
+
 
 {% include team_pic.html
   name="Matus Telgarsky"
