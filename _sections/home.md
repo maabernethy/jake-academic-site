@@ -5,6 +5,7 @@ order: 1
 link_id: home
 ---
 
+# About Me
 
 I am an Assistant Professor in the
                 <a href="https://www.scs.gatech.edu/" target="_blank">School of Computer Science</a> in the <a href="http://www.cc.gatech.edu" target="_blank">College of Computing</a> at the
@@ -17,7 +18,15 @@ My research focus is Machine Learning, and I like discovering connections betwee
                 with <a href="http://www.cis.upenn.edu/~mkearns/" target="_blank">Michael Kearns</a>
                 for the following two years.
 
-# News
+# Recent News
+
+* &rArr; Thanks to the National Science Foundation for <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1910077&HistoricalAwards=false">IIS Award 1910077</a> titled "RI: Small: Training Modularized Learning Systems Through Non-Convex Multiplayer Game Dynamics"
+* &rArr; I am spending the summer of 2019 at <a href="https://ai.google/research/join-us/new-york/">Google Research NYC</a>
+* &rArr; Along with <a href="https://www.shivani-agarwal.net/">Shivani Agarwal</a>, I will be the program co-chair of the <a href="https://learningtheory.org
+">2020 Conference on Learning Theory (COLT)</a>
+* &rArr; In the years since Flint Michigan's water crisis, I continue to work on the problem of detecting lead contamination and infrastructure remediation. More details on this project <a href="{{ "/flint" | relative_url }}">can be found here</a>.
+
+<!-- <a href="{{ "/flint" | relative_url }}">View My Flint Portfolio</a>
 
 {% include image_card_reveal.html
   img="/assets/images/NewScientistArticlePic.png"
@@ -26,4 +35,4 @@ My research focus is Machine Learning, and I like discovering connections betwee
   link="/pdf/AI_FlintCrisis.pdf"
   reveal_title="Flint Portfolio"
   reveal="In collaboration with my colleague and friend, Prof. Eric Schwartz, and with the help of several talented students as part of the Michigan Data Science Team, we have contributed a great deal of statistical and data-oriented work towards recovery efforts in Flint's water crisis. View my Flint portfolio to see all related articles"
-%}
+%} -->
