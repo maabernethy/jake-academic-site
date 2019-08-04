@@ -17,9 +17,15 @@ main {
     justify-content: space-between;
     align-items: center;
 
-    .big-underline {
-      width: 185px;
-      height: 10px;
+    .name {
+      .big-underline {
+        width: 185px;
+        height: 10px;
+      }
+
+      &:hover .big-underline {
+        width: 360px;
+      }
     }
   }
 
@@ -42,6 +48,16 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+
+      .bibliography {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+          margin-bottom: 20px;
+        }
       }
     }
   }

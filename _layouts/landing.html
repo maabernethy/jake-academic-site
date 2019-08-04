@@ -27,21 +27,13 @@
         </div>
         <div class='section-view-all'>
           <h3>Recent Publications</h3>
-          <a href='/publications' class='bold'>
+          <a href={{ '/publications' | relative_url }} class='bold'>
             view all
             <i class="fas fa-chevron-right"></i>
           </a>
         </div>
         <div class='publications'>
-          <p>
-            Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., & Webb, J. (2018). ActiveRemediation: The Search for Lead Pipes in Flint, Michigan. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (pp. 5–14). ACM.
-          </p>
-          <p>
-            Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., & Webb, J. (2018). ActiveRemediation: The Search for Lead Pipes in Flint, Michigan. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (pp. 5–14). ACM.
-          </p>
-          <p>
-            Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., & Webb, J. (2018). ActiveRemediation: The Search for Lead Pipes in Flint, Michigan. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (pp. 5–14). ACM.
-          </p>
+          {% bibliography -q @inproceedings[year>=2016] --max 5 --template bibliography-short --group_by none %}
         </div>
       </div>
     </div>

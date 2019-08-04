@@ -42,7 +42,12 @@ main {
 
     a {
       color: $purple-highlight;
+
+      &:hover {
+        border-bottom: none;
+      }
     }
+
     .big-underline {
       background-color: $gold-highlight;
     }
