@@ -1,8 +1,6 @@
 ---
-title: Teaching
-include: sections/default.html
-order: 5
-link_id: teaching
+layout: default
+id: teaching
 ---
 
 # Courses I have taught

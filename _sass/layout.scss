@@ -29,6 +29,61 @@ main {
     }
   }
 
+  #people {
+    display: flex;
+    flex-direction: column;
+
+    .group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #card {
+      height: 330px;
+      width: 200px;
+
+      img {
+        height: 200px;
+        width: 200px;
+      }
+    }
+  }
+
+  #talks {
+    display: flex;
+    flex-direction: column;
+
+    .group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #card {
+      height: 500px;
+      width: 400px;
+
+      img {
+        height: 300px;
+        width: 400px;
+      }
+    }
+  }
+
+  #card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 10px;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   #landing {
     display: flex;
     justify-content: flex-start;

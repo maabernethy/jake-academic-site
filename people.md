@@ -1,12 +1,11 @@
 ---
-title: Research Group
-include: sections/default.html
-order: 2
-link_id: group
+layout: default
+id: people
 ---
 
 # Current group
 
+<div class='group'>
 {% include team_pic.html
   name="Benjamin Bray"
   link="http://benrbray.com/"
@@ -54,8 +53,12 @@ link_id: group
   description="Postdoctoral Fellow"
   type="current"
 %}
+</div>
+
 
 # Former students and postdocs
+
+<div class='group'>
 
 {% include team_pic.html
   name="Ruihao Zhu"
@@ -88,3 +91,5 @@ link_id: group
   description="Graduated! Former PhD student in CSE. Currently a faculty member at Swarthmore College"
   type="former"
 %}
+
+</div>

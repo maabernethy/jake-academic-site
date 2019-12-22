@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+<main>
+  {% include navbar.html %}
+  <div id="{{ page.id }}">
+      {{ content }}
+    </div>
+</main>
+{% include footer.html %}
+</html>

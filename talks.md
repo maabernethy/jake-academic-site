@@ -1,11 +1,11 @@
 ---
-title: Talks
-include: sections/default.html
-order: 4
-link_id: talks
+layout: default
+id: talks
 ---
 
 # Talks
+
+<div class='group'>
 
 {% include talk_image.html
   slides="/slides/gameplaying_gatech_2017/versions/v1"
@@ -103,3 +103,5 @@ link_id: talks
   loc_name="Google TechTalk 2007"
   loc_link="https://www.youtube.com/user/GoogleTechTalks/featured"
 %}
+
+</div>
