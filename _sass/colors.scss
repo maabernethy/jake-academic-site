@@ -19,11 +19,27 @@ main {
     color: $purple-highlight;
   }
 
-  h3 {
+  h3, h2 {
     color: $grey-text;
   }
 }
 
+#publications {
+  .comment {
+    color: $gold-highlight;
+
+    .line {
+      border-top: 1px solid $gold-highlight;
+      border-right: 1px solid $gold-highlight;
+    }
+  }
+
+  .highlight {
+    border-left: 1px solid $gold-highlight;
+    border-right: 1px solid $gold-highlight;
+    border-bottom: 1px solid $gold-highlight;
+  }
+}
 
 #navbar {
   background-color: $grey-background;

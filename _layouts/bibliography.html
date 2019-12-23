@@ -1,25 +1,25 @@
 ---
 ---
 
-{{reference}}
-
-<div>
-{% if entry.paperpdf %}
-  <a href="{{ site.url }}{{site.baseurl}}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
-{% endif %}
-{% if entry.link %}
-  <a href="{{entry.link | relative_url}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
-{% endif %}
-
-{% if entry.abstract %}
-    <a class="waves-effect waves-blue btn btn-small collapse"> Abstract </a>
-    <div class="card-panel abstract" style="display:none">
-      <span>{{entry.abstract}}</span>
-    </div>
-{% endif %}
-
 {% if entry.comments %}
-  <div class="comment"> <strong>** {{entry.comments}} **</strong></div>
+  <div class="comment semi-bold">
+    {{entry.comments}}
+    <span class='line' />
+  </div>
 {% endif %}
 
+<div class='reference {% if entry.comments %}highlight{% endif %}'>
+  <span class="left">
+    {{reference}}
+  </span>
+
+  <span class="right">
+    {% if entry.paperpdf %}
+      <a href="{{ site.url }}{{site.baseurl}}/{{site.dir_papers}}/{{entry.paperpdf}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
+    {% endif %}
+    {% if entry.link %}
+      <a href="{{entry.link | relative_url}}" target="_blank" class="waves-effect waves-teal btn btn-small">PDF</a>
+    {% endif %}
+
+  </span>
 </div>
