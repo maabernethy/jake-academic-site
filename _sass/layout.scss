@@ -29,8 +29,43 @@ main {
     }
   }
 
+  #card {
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 98.5%;
+      width: 100%;
+      opacity: 0;
+      transition: .5s ease;
+      background-color: #EDEAEA;
+    }
+
+    .text {
+      color: black;
+      font-size: 16px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .card-image {
+      position: relative;
+    }
+
+    .card-image:hover .overlay {
+      opacity: .7;
+    }
+  }
+
   #publications {
-    margin: 0 10%;
+    margin: 50px 10%;
 
     .comment {
       display: flex;
@@ -45,6 +80,16 @@ main {
     .reference {
       display: flex;
       padding: 5px;
+
+      .left {
+        width: 90%;
+      }
+
+      .right {
+        width: 10%;
+        text-align: right;
+        padding-right: 5px;
+      }
     }
 
     ol {
@@ -59,6 +104,7 @@ main {
   #people {
     display: flex;
     flex-direction: column;
+    margin: 50px 10%;
 
     .group {
       display: flex;
@@ -66,13 +112,14 @@ main {
     }
 
     #card {
-      height: 330px;
-      width: 200px;
+      height: 375px;
+      width: 300px;
 
       img {
-        height: 200px;
-        width: 200px;
+        height: 300px;
+        width: 300px;
       }
+
     }
   }
 
@@ -92,6 +139,10 @@ main {
       img {
         height: 300px;
         width: 400px;
+      }
+
+      .card-image:hover .overlay {
+        opacity: 1;
       }
     }
   }

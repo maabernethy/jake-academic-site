@@ -1,15 +1,15 @@
-<div id="card" class="">
-  <div class="card-image">
-    {% if include.link != null %}
-      <a target="_blank" href="{{ include.link | relative_url }}">
-    {% else %}
-      <a target="_blank" href="{{ include.slides | relative_url }}">
-    {% endif %}
-      <img src="{{include.img | relative_url}}">
-    </a>
-  </div>
-  <div class="card-content">
-    <span class="card-title"><a href="{{include.loc_link | relative_url }}">{{include.loc_name}}</a></span>
-    <p>{{include.description}}</p>
-  </div>
+<div id="card">
+{% if include.link != null %}
+  <a class="card-image" target="_blank" href="{{ include.link | relative_url }}">
+{% else %}
+  <a class="card-image" target="_blank" href="{{ include.slides | relative_url }}">
+{% endif %}
+    <img src="{{include.img | relative_url}}" alt="{{include.description}}">
+    <div class="overlay">
+      <div class="text">{{include.description}}</div>
+    </div>
+  </a>
+  <a class="card-subtitle" target="_blank" href="{{include.loc_link | relative_url }}">
+    {{include.loc_name}}
+  </a>
 </div>
