@@ -11,6 +11,10 @@ main {
   padding: 10px 50px;
   flex: 1 0 auto;
 
+  #flint {
+    margin: 50px 10%;
+  }
+
   #navbar {
     display: flex;
     flex-direction: row;
@@ -26,6 +30,13 @@ main {
       &:hover .big-underline {
         width: 360px;
       }
+    }
+
+    .links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 40%;
     }
   }
 
@@ -62,6 +73,39 @@ main {
     .card-image:hover .overlay {
       opacity: .7;
     }
+  }
+
+  #teaching {
+    margin: 50px 10%;
+
+    .table {
+      display: flex;
+      flex-direction: column;
+
+      .table-header {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .number { width: 15%; }
+      .name { width: 40%; }
+      .institution { width: 20%; }
+      .year { width: 15%; }
+      .view { width: 10%; }
+
+      .table-rows {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .table-row {
+          display: flex;
+          justify-content: space-evenly;
+          padding: 10px 0
+        }
+      }
+    }
+
   }
 
   #publications {

@@ -5,18 +5,16 @@ id: teaching
 
 # Courses I have taught
 
-<table class="highlight responsive-table">
-  <thead>
-    <tr>
-      <th>Number</th>
-      <th>Name</th>
-      <th>Intitution</th>
-      <th>Year</th>
-      <th></th>
-    </tr>
-  </thead>
+<div class='table'>
+  <div class='table-header'>
+    <span class='number'>Number</span>
+    <span class='name'>Name</span>
+    <span class='institution'>Intitution</span>
+    <span class='year'>Year</span>
+    <span class='view'></span>
+  </div>
 
-  <tbody>
+  <div class='table-rows'>
     {% include course_table_row.html
       number="CS 7505"
       year="Fall 2018"
@@ -79,6 +77,5 @@ id: teaching
       name="Prediction and Learning: It's Only a Game"
       link="http://web.eecs.umich.edu/~jabernet/eecs598course/fall2013/web/"
     %}
-
-  </tbody>
-</table>
+  </div>
+</div>

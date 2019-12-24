@@ -1,14 +1,13 @@
-<tr>
-  <td>{{include.number}}</td>
-  <td>{{include.name}}</td>
-  <td>{{include.institution}}</td>
-  <td>{{include.year}}</td>
-  <td>
+<div class='table-row'>
+  <span class='number'>{{include.number}}</span>
+  <span class='name'>{{include.name}}</span>
+  <span class='institution'>{{include.institution}}</span>
+  <span class='year'>{{include.year}}</span>
+  <span class='view'>
   	{% if include.link And include.link != "" And include.link != nil %}
   		<a href="{{include.link | relative_url }}" class="waves-effect waves-light btn">VIEW</a>
   	{% else %}
   		&nbsp;
   	{% endif %}
-    
-  </td>
-</tr>
+  </span>
+</div>
