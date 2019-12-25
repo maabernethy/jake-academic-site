@@ -1,0 +1,539 @@
+<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <title>Default Presentation</title> <style>@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);html,body{font-family:'Minion Pro','Palatino Linotype','Palatino','Georgia',serif;font-size:28px}h1,h2,h3,h4,h5,h6{font-family:'Yanone Kaffeesatz','Din Condensed','Yanone Kaffeesatz',sans-serif;font-weight:400;color:#7ec6e7}.inverse{background:#272822;color:#f3f3f3;text-shadow:0 0 20px #333}.remark-fading{z-index:9}.remark-slide-container{transition:opacity .5s ease-out;opacity:0}.remark-visible{transition:opacity .5s ease-out;opacity:1}.remark-code,.remark-inline-code{font-family:'Ubuntu Mono'}img.headline{width:70%}.alert{color:aqua}.remark-slide-content{display:table-cell;vertical-align:middle;font-family:'Avenir Next';padding:0 3em;border-bottom:18px solid #34a5da;border-top:18px solid #34a5da;font-size:24px;background:#272727;color:#ddd}blockquote{border-left:5px solid #ccc;padding-left:1em;margin:0;font-style:italic;color:#999}.footnote{position:absolute;bottom:3em;font-size:.6em;color:#666}.paper{color:#7ec6e7;font-size:.85em}.left-column{width:50%;float:left}.right-column{width:50%;float:right}.left-column70{width:65%;float:left}.right-column30{width:30%;float:right}.smallish{font-size:.8em}table{border-collapse:collapse}table,th,td{border:2px solid #14506c;padding:5px}.red{color:red}.important-block{border-radius:10px;background:#333;padding:0 5px 0 1px;box-shadow:0 0 20px 0 #666}.theorem{border-radius:15px;border:3px dashed #47788f;padding:7px;margin-top:4px;margin-bottom:14px}.theorem p{margin-top:0;margin-bottom:0}</style> <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </head> <body> <textarea id="source">
+class: center, middle, inverse
+# Online Learning, Regret, and Finance
+## Jacob Abernethy - Georgia Tech
+### Two Sigma -- New York, NY
+#### March 22, 2018
+
+
+
+$$
+\def\DD{\mathbf{D}}
+\def\EE{\mathop{\mathbb{E}}}
+\def\argmin{\mathop{\arg\min}}
+\def\argmax{\mathop{\arg\max}}
+\def\K{\mathcal{K}}
+\def\reals{\mathbb{R}}
+\def\reg{\mathcal{R}}
+\def\areg{\overline{\reg}}
+$$
+
+---
+class: top
+
+## Background on my interests
+
++ Started research in Machine Learning in 2004
++ Around the same time, got obsessed with poker
++ Wanted to understand the dynamics of learning in adversarial environments
++ Worked at a hedge fund for 1.5 years when I started grad school at Berkeley
++ My NSF CAREER proposal was on understanding learning through the context of markets, microeconomics, and finance
+
+---
+class: top
+
+## Today's Talk
+
++ Basic model of prediction with expert advice
++ A couple of gambling/investing scenarios
+  * Binary options
+  * Universal Constant Rebalanced Portfolios
++ Online Convex Optimization
+  * Regret
+  * Algorithms
++ Option Pricing in the worst case
+
+
+
+---
+class: top
+
+## Prediction with Expert Advice: Basic Template
+
++ Imagine you have a set of $N$ **stock experts**
++ Some might be **adversarial**!
++ Model assumption: there is a **perfect expert** who doesn't lie
+  + Often referred to as "noise-free" or "realizable" setting
+--
+
++ On each day $t=1,2,3,\ldots$:
+  + Each expert predicts whether stock will go **up** or **down**
+  + Taking their advice, you predict **buy** or **sell**
+  + You then learn true outcome, and **lose** or **gain** $1
+--
+
++ **Questions**:
+  + What is the best algorithm?
+  + How does it perform *in the worst case?*
+      + I.e., how many *mistakes* before best expert is located?
+
+
+---
+class: top
+
+## Prediction with Expert Advice: Basic Template
+
+**Answers**:
+--
+
++ With $N$ experts, easy to show upper bound of $N-1$ mistakes
+--
+
++ Best upper bound is $\log_2 N$!
+--
+
++ Use the **Halving Algorithm**:
+  + Always maintain the pool $S$ of "unmistaken experts thus far"
+  + Follow the *majority vote* of $S$
+  + **Key Observation**: whenever **you** make a mistake, then **more than half** of $S$ was wrong, so $S$ shrinks by at least a factor of $\frac12$! Can only happen $\log_2 N$ times!
+
+
+---
+class: top
+
+## Prediction with Expert Advice: Advanced Version
+
++ The "perfect expert" assumption is too strong
++ Now assume that there is a "pretty good expert"
++ This decent expert makes no more than $L$ mistakes
+  + Other experts may still be adversarial!
+--
+
+
+**Exponential Weights Algorithm** (effectively the best possible):
++ On each round, each expert $i$ is assigned a *weight* $w_i$:
+<div>
+  $$
+    w_i := e^{-\eta \cdot \sharp \text{mistakes}(i)}, \quad \quad \quad \text{where } \eta > 0 \text{ a param.}
+  $$
+</div>
+--
+
++ The learner combines advice by making a *randomized* prediction according to *weighted majority vote*!
++ The parameter $\eta$ does need to be tuned appropriately
+
+
+
+---
+class: top
+
+## Prediction with Expert Advice: Advanced Version
+
++ It can be shown that the Exponential Weights Algorithm (EWA) is essentially the best possible
++ Even against the worst adversary, it performs optimally
+
+**Theorem:** If the best expert makes fewer than $L$ mistakes, then the *expected* number of mistakes of EWA satisfies:
+<div>
+  $$
+  \text{Num. Mistakes EWA} \leq L + \sqrt{2 L \ln N} + \log_2 N
+  $$
+</div>
+--
+
+Notice that the "regret" of using EWA (versus knowing the best expert), is only $\sqrt{2 L \ln N} + \log_2 N$. This quantity, when *averaged over time* is certainly going to 0! This is known as "vanishing regret".
+
+
+
+---
+class: top
+
+
+## Core idea here: **Learning** with Adversarial Data
+
++ The framework described above allows for an *arbitrary* sequence of input data
+--
+
++ The mistake guarantee made no "model assumptions" other than *there is at least one good expert*
+--
+
++ In this context, we can still define what "learning" means:
+  + *perform well **relative** to some **benchmark** strategy*
+--
+
++ Confession: several research communities find this conceptual framework difficult to swallow
+  + BUT it is an excellent starting point for the finance world
+
+---
+class: top
+
+## Aside: Market Maker Choosing Bid-Ask Spread 
+
+* A market maker sets bid/ask prices in a market
+* Can react to market data, i.e. volatility and transaction volume
+* How to set the bid-ask spread to optimize wealth but be robust to major price swings?
+--
+
+
+**Abernethy/Kale 2013**: Can use an exponential-weights style algorithm that competes with the best hindsight bid-ask spread, and minimizes the transaction costs associated with inventory management.
+
+Key point: does not rely on stochastic assumptions about the sequence of trades!
+
+---
+class:top
+
+## A Simple Gambling Problem
+
++ Given a sequence of **binary option** bets, with outcomes $y_1, y_2, \ldots, y_T \in \\{ -1 , 1\\}$
++ On each day can go long/short up to one unit of currency; bet on round $t$ is $x_t \in [-1, 1]$
++ Want to do well relative to *two benchmark strategies*:
+  + (a) always go long
+  + (b) always go short
++ Objective is the difference between gain of best reference strategy, and the algorithm's performance:
+<div>
+  $$\max_{x^* \in \{-1,1\}} \sum_{t=1}^T y_t x^* - \sum_{t=1}^T y_t x_t$$
+</div>
+
+---
+class: top
+
+## A Harder Gambling Problem: Betting on CRPs
+
++ You are given $n$ assets, with a fluctuating price
+  * On round $t$, asset $i$ multiplicatively changes by $r_i^t$, so 
+  <div>
+    $$
+      \text{Price}_i^{t+1} = 
+      \text{Price}_i^t  (1+r_i^t)
+    $$
+  </div>
++ A *Constant Rebalanced Portfolio* (CRP) is a fixed
+ asset distribution $\mathbf{w} \in \Delta_n$, where after each period
+ the investor rebalances to $\mathbf{w}$.
+ Earnings of this CRP $\mathbf{w}$ are
+<div>
+  $$\max_{\text{portfolios } \mathbf{w} \in \Delta_n} 
+    \prod_{t=1}^T (1 + \mathbf{w}\cdot \mathbf{r}^t)$$
+</div>
++ An *adaptive portfolio* is a changing $\mathbf{w}^1, \mathbf{w}^2, \ldots$, where investor rebalances to $\mathbf{w}^t$ on round $t$. Earnings are $\prod_{t=1}^T (1 + \mathbf{w}^t \cdot \mathbf{r}^t)$.
+
+
+---
+class: top
+
+## A Harder Gambling Problem: Betting on CRPs
+
+**Question**: Can we *compete with* the best CRP? Can we earn just as much money as if we knew in advance the best fixed portfolio? 
+
+In other words, we want to choose an adaptive portfolio $\\{\mathbf{w}^t: t=1, 2, \ldots\\}$ to minimize the following:
+<div>
+  $$ \text{LogWealthRatio} := 
+  \max_{\mathbf{w} \in \Delta_n} 
+    \sum_{t=1}^T \log (1 + \mathbf{w}\cdot \mathbf{r}^t) - \sum_{t=1}^T \log (1 + \mathbf{w}^t \cdot \mathbf{r}^t)$$
+</div>
+
+**Theorem** (Cover/Ordentlich 1996): There exists an adaptive "Universal" portfolio that competes with the best CRP for *any* sequence of price fluctuations, where
+$$
+\text{LogWealthRatio} \leq O(n \log T)
+$$
+
+
+
+
+---
+class: top
+
+## A Harder Gambling Problem: Betting on CRPs
+
+
+What is this magical adaptive Universal portfolio? It is
++ Easy to describe
++ Known to be the "best possible"
++ Challenging to implement
+--
+
+
+**Universal**: Buy-and-Hold a uniform investment in *every* CRP, but continue to re-balance within each of these infinitesimally-small portfolios.
+--
+
+
+Applying this strategy is non-trivial. There has been a lot of work trying to find efficient implementations.
+
+
+---
+class: top
+
+
+## Master Template: Online Learning Framework
+
+**Online convex optimization**:
+
+- *learner* who chooses actions from compact/convex $K \subset \reals^n$
+--
+
+- For $t=1, \ldots, T$:
+    + learner selects $x_t \in K$
+    + learner receives convex loss function $\ell_t(\cdot)$ on $K$
+    + learner pays $\ell_t(x_t)$
+--
+
+**Example**: 
+- $K$ is the portfolio simplex $\Delta_n$
+- $\mathbf{x}_t$ is the adaptive portfolio on round $t$
+- $\ell_t(\mathbf{x}_t) := -\log(1 + \mathbf{x}^t \cdot \mathbf{r}^t)$, the log wealth change on round $t$
+
+
+---
+class: top
+
+
+## Master Template: Online Learning Framework
+
+
+- For $t=1, \ldots, T$:
+    + learner selects $x_t \in K$
+    + learner receives convex loss function $\ell_t(\cdot)$ on $K$
+    + learner pays $\ell_t(x_t)$
+--
+
+
+- **OCO Goal:** learner wants to minimize *regret*
+<div>
+$$\reg_T :=  \sum_{t=1}^{T} \ell_{t}(x_{t}) - \min_{x \in K} \sum_{t=1}^T \ell_t(x) $$
+</div>
+
+- Possible to design alg. so $\frac 1 T \reg_T \to 0$?
+
+
+
+
+---
+class: top
+
+
+## What's the Best OCO Algorithm?
+
+- What algorithms minimize regret? Depends on the setting.
+
+--
+
+1. When $x \in \Delta\_n$, $\ell\_t(x) = l\_t^\top x$ (linear loss), $\\|l\_t\\|\_\infty \leq 1$, then:
+    - **Exponential Weights Algorithm**: $x_{t+1}[i] =  \frac{x_t[i]\exp(-\eta l_t[i])}{Z_t}$
+    - Can guarantee: $\reg_T = O\left( \sqrt{T\log n} \right)$
+--
+
+1. When $x \in L_2\text{-ball}$, $\ell_t(x)$ convex and $C$-lipschitz, then:
+    - **Gradient Descent Algorithm**: $x_{t+1} = x_t - \eta \nabla \ell_t(x_t)$
+    - Can guarantee: $\reg_T = O\left( \sqrt{T \\|x^*\\|^2} \right)$
+    - Logistical problem: update $x_t - \eta \nabla \ell_t(x_t)$ may violate constraints! Need to do projection :-(
+
+
+---
+class: top
+
+
+## Core OCO Algorithm: Follow the Regularized Leader
+
+- OCO algorithms must manage tradeoff between "respond to data" and "remain stable"
+- Classical algorithm: **Follow The Reguarlized Leader** (FTRL)
+$$x\_{t+1} := \arg\min\_x \sum\_{s=1}^t \ell\_s(x) + \frac{1}{\eta} R(x)$$
+- Typically we select $R(\cdot)$ as some strongly convex function
+--
+
+
+This generalizes the two algorithms on the previous slide!
++ **Exponential Weights Algorithm** is simply FTRL with  $R(x) = \sum_i x_i \log x_i$
++ **Gradient Descent Algorithm** is simply FTRL with $R(x) = \\|x\\|^2$
+
+
+---
+class: top
+
+
+## Alternative OCO Alg.: Follow the PERTURBED Leader
+
+- Sometimes we might want to produce a *random* action on round $t$
+- This can be more efficient method, can rely solely on a linear optimization
+- **Follow The Perturbed Leader** (FTPL)
+  + Sample a random vector $Z \sim D$ from some distribution $D$
+$$x\_{t+1} := \arg\min\_{x \in K} \sum\_{s=1}^t \ell\_s(x) + \frac{1}{\eta} Z\cdot x$$
+- Generally this works best when $\ell_t(\cdot)$'s are linear
+--
+
+- **Kalai/Vempala** proved a generic regret bound for FTPL in 2003
+- My student **Chansoo Lee** wrote his thesis on perturbation methods
+
+---
+class: top
+
+
+## Alternative OCO Alg.: Follow the PERTURBED Leader
+
+
+It turns out that the **Exponential Weights Algorithm** can be framed in this way! Two equivalent formulations:
+- Sample $I$ with probability proportional to $\exp(-\eta L_i)$
+- Sample $I$ as the argmax of $-\eta L_i + Z_i$, where $Z_i$ is an IID gumble-distributed random variable
+- These are the same algorithm!
+
+
+
+
+---
+class:top
+
+## REVISITING: A Simple Gambling Problem
+
++ Given a sequence of **binary option** bets, with outcomes $y_1, y_2, \ldots, y_T \in \\{ -1 , 1\\}$. Gambler can go long/short up to one unit of currency; bet on round $t$ is $x_t \in [-1, 1]$
++ Want to perform well vs. *always long* or *always short*:
+<div>
+  $$\max_{x^* \in \{-1,1\}} \sum_{t=1}^T y_t x^* - \sum_{t=1}^T y_t x_t$$
+</div>
+--
+
+
+**Cover 1970s**: The optimal betting scheme on round $t$ is to *randomize* the future outcomes $Y\_{t}, Y\_{t+1}, \ldots, Y\_{T+1}$ via coin tosses, and then
+<div>
+  $$x_t = \text{sign}(y_1 + \ldots + y_{t-1} + Y_t + \ldots + Y_T )$$
+</div>
+--
+
+
+**Note**: The above perturbation method is "transaction cost efficient!" Can involve many fewer trades when $Y\_{t}$'s sampled only once.
+
+---
+class:top
+
+## A Perturbation View of Option Pricing
+
+.left-column70[
+* .paper[Black, Scholes 1973] showed that price of options and other "derivatives" can be determined via "hedging strategies". Requires stock price fluctuates according to a *geometric Brownian motion* (GBM)!
+* .paper[DeMarzo, Kremer, Mansour, 2006] developed worst-case methods for hedging options using regret-minimization techniques.
+* .paper[A., Frongillo, Wibisono 2012] showed that under a minimax perspective the worst-case strategy for Nature is GBM.
+* .paper[A., Bartlett, Frongillo, Wibisono 2013] showed that OPT strategy is **exactly** with Black&Scholes delta-hedging.
+]
+
+.right-column30[
+<img src="../../assets/images/mm_scholes.jpg" width=90%>
+
+<img src="../../assets/images/stock_prices.jpg" width=90%>
+]
+
+---
+class: top
+
+## Brief Overview of Black&Scholes Option Pricing 
+
+* An asset $A$ (stock, bond, etc.) has a price process $S(t)$.
+* An option on $A$ has **expiration** $T$ and **strike price** $k$. These determine the **payout** function $\rho(S; k, T)$. For a "European call", 
+<div>$$
+\rho(S; k, T) = \max(0, S(T) - k).
+$$</div>
+
+* Black-Scholes assumes price $S(t)$ "wiggles" via *geometric Brownian motion* (GBM); i.e. $\log S(t) \sim \mathcal{N}(\mu_0 + t\mu, t\sigma^2)$.
+
+<center>
+<img src="../../assets/images/option_payout.png" width=30%> &nbsp;&nbsp;&nbsp;&nbsp;
+<img src="../../assets/images/price_pathbase.png" width=40%>
+</center>
+
+
+
+---
+class: top
+
+## Option Pricing via Stochastic Calculus
+
+BS model assumes we can **hedge** option risk by trading
+underlying asset $A$. Gives a **value** for the option, the "fixed cost" of hedging.
+* Option value is func. $f(S, t)$; certainly $f(S,T) = \rho(S; k, T)$.
+* The Option owner holds portfolio $\Delta(S,t) := \frac{\partial f}{\partial S} dS$
+* Using Ito's Lemma, and assuming we can hedge all risk:
+<div>
+  $$df(S,t) = \frac{\partial f}{\partial t} dt +  \frac12 \frac{\partial^2 f}{\partial S^2}S^2 dt + \frac{\partial f}{\partial S} dS = \frac{\partial f}{\partial S} dS$$
+</div>
+* Gives rise to the Black-Scholes diff. eqn., and the solution
+<div>
+  $$\frac{\partial f}{\partial t} dt +  \frac12 \frac{\partial^2 f}{\partial S^2}S^2 dt = 0 \implies f(S,t) \equiv \EE_{S \sim \text{GBM}}[\rho(S(T); k,T)]$$
+</div>
+* Final price $S(T)$ is chosen by "finishing" the GBM process.
+
+---
+class: top
+
+## An Alternative Perspective via Online Learning
+
+* Let's treat the option pricing problem as a repeated game between **Nature** and **Hedger** (a la .paper[DeMarzo, Kremer, Mansour 2006])
+--
+
+* Pick discretization level $n$.
+--
+
+* **For** $i=1,2,\ldots, Tn$:
+  * **Hedger** chooses $\delta_i \in \mathbb{R}$
+  * **Nature** chooses price update $S(i/n)$ (with constraints!)
+  * **Hedger** gains (or loses) the amount $ \left(\frac{S(i/n)}{S((i-1)/n)} - 1 \right)\delta_i$
+--
+
+* The final **minimax regret** of the hedging game
+<div>$$
+  \inf_{\text{Algs } \; \mathcal{A}} \sup_{\text{Price paths } S} \;\;
+  \rho(S(T)) - \sum_{i=1}^{Tn}  \left(\frac{S(i/n)}{S((i-1)/n)} - 1 \right)\delta_i
+$$</div>
+* In other words, it's the worst-case difference between the option payout and the hedger's gains/losses
+
+
+---
+class: top
+
+## Minimax Option Pricing $\equiv$ Black-Scholes
+
+* .paper[A., Frongillo, Wibisono 2012]: Under appropriate constraints on Nature, this option pricing game gives rise to the same valuation!
+--
+
+
+* That is, as discretization $n\to \infty$,
+<div>$$
+  \underbrace{\inf_{\mathcal{A}} \sup_{S} \;\;
+  \rho(S(T)) -  \sum_{i=1}^{Tn}  \left(\frac{S(i/n)}{S((i-1)/n)} - 1 \right)\delta_i}_{\text{Minimax hedging regret}} \rightarrow \underbrace{\EE_{S \sim \text{GBM}}[\rho(S(T))]}_{\text{Black/Scholes value}}
+$$</div>
+--
+
+* Achieved by showing that worst-case price process indeed converges to GBM!
+* Hence GBM is a consequence, not an assumption, of the model
+* .paper[A., Bartlett, Frongillo, Wibisono 2013]: the optimal player strategy for choosing $\delta_i$ converges to the Black-Scholes hedging strategy
+
+---
+layout: true
+class: top
+
+## Option Pricing is a Perturbation Method
+
+* A stock price has fluctuated over time
+* How should we hedge an option given strick price $k$, remaining time $T-t$, and current price $S(t)$?
+
+---
+
+<center>
+<img src="../../assets/images/price_pathbase.png" width=45%>
+</center>
+
+
+---
+
+<center>
+<img src="../../assets/images/animated_price_paths.gif" width=45%>
+</center>
+
+* The minimax optimal hedging strategy says: sample the remaining price path (according to GBM) and buy a share of $A$ if the price falls above the strike price, and otherwise don't buy.
+
+
+---
+layout: false
+class: middle
+
+<center>
+<h1>
+  $\sim \sim$ FIN $\sim \sim$ 
+</h1> 
+</center>
+
+.footnote[Slides made entirely with Markdown, Remark.js, MathJax, and animated GIFs]
+
+    </textarea> <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript"></script> <script type="text/javascript">var slideshow=remark.create({navigation:{scroll:!1},countIncrementalSlides:!1,highlightStyle:"tomorrow-night-eighties",highlightLanguage:"remark",highlightLines:!0});</script> <script>var hljs=remark.highlighter.engine;</script> <script type="text/javascript">MathJax.Hub.Config({jax:["input/TeX","output/SVG"],tex2jax:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["[","]"]],skipTags:["script","noscript","style","textarea","pre"]}}),MathJax.Hub.Queue(function(){$(MathJax.Hub.getAllJax()).map(function(t,a){return a.SourceElement()}).parent().addClass("has-jax")}),MathJax.Hub.Configured();var slideshow=remark.create({countIncrementalSlides:!1,highlightStyle:"tomorrow-night-eighties",highlightLanguage:"remark",highlightLines:!0});</script> <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("End Jax",function () {
+        var BROWSER = MathJax.Hub.Browser;
+        var jax = "SVG";
+        if (BROWSER.isMSIE && BROWSER.hasMathPlayer) jax = "NativeMML";
+        return MathJax.Hub.setRenderer(jax);
+        });
+      MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+    </script> </body> </html>

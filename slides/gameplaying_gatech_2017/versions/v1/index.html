@@ -1,0 +1,673 @@
+<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <title>Default Presentation</title> <style>@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);html,body{font-family:'Minion Pro','Palatino Linotype','Palatino','Georgia',serif;font-size:28px}h1,h2,h3,h4,h5,h6{font-family:'Yanone Kaffeesatz','Din Condensed','Yanone Kaffeesatz',sans-serif;font-weight:400;color:#7ec6e7}.inverse{background:#272822;color:#f3f3f3;text-shadow:0 0 20px #333}.remark-fading{z-index:9}.remark-slide-container{transition:opacity .5s ease-out;opacity:0}.remark-visible{transition:opacity .5s ease-out;opacity:1}.remark-code,.remark-inline-code{font-family:'Ubuntu Mono'}img.headline{width:70%}.alert{color:aqua}.remark-slide-content{display:table-cell;vertical-align:middle;font-family:'Avenir Next';padding:0 3em;border-bottom:18px solid #34a5da;border-top:18px solid #34a5da;font-size:24px;background:#272727;color:#ddd}blockquote{border-left:5px solid #ccc;padding-left:1em;margin:0;font-style:italic;color:#999}.footnote{position:absolute;bottom:3em;font-size:.6em;color:#666}.paper{color:#7ec6e7;font-size:.85em}.left-column{width:50%;float:left}.right-column{width:50%;float:right}.left-column70{width:65%;float:left}.right-column30{width:30%;float:right}.smallish{font-size:.8em}table{border-collapse:collapse}table,th,td{border:2px solid #14506c;padding:5px}.red{color:red}.important-block{border-radius:10px;background:#333;padding:0 5px 0 1px;box-shadow:0 0 20px 0 #666}.theorem{border-radius:15px;border:3px dashed #47788f;padding:7px;margin-top:4px;margin-bottom:14px}.theorem p{margin-top:0;margin-bottom:0}</style> <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </head> <body> <textarea id="source">
+class: center, middle, inverse
+# Building Algorithms by Playing Games
+## Jacob Abernethy - Georgia Tech
+### Google Zürich
+#### July 17, 2018
+
+
+
+$$
+\def\DD{\mathbf{D}}
+\def\EE{\mathop{\mathbb{E}}}
+\def\argmin{\mathop{\arg\min}}
+\def\argmax{\mathop{\arg\max}}
+\def\K{\mathcal{K}}
+\def\reals{\mathbb{R}}
+\def\reg{\mathcal{R}}
+\def\areg{\overline{\reg}}
+$$
+
+
+---
+class: top
+
+
+## Chess and AI
+
+<img src="../../assets/robot_chess.jpg" width=60%>
+
+
+
+---
+class: top
+
+
+## A History of Computer Chess
+
+<img src="../../assets/computer_chess_history.jpg" width=70%>
+
+---
+class: top
+
+
+## Monte Carlo Tree Search
+
+- Recursively solving an extensive-form game is harddddddd
+
+<img src="../../assets/MTCS.png" width=80%>
+
+- MTCS: evaluate a game state by *randomly finishing the game*
+
+---
+class: top
+
+
+## Modern Chess and Deep Learning
+
+<img src="../../assets/chess-architecture.png" width=50%>
+
+- Recent methods in chess use deep nets to predict the quality of a game state
+- They are competitive with state-of-the-art chess engines
+
+
+---
+class: top
+
+
+<img src="../../assets/alphago.png">
+
+<img src="../../assets/alphago_mtcs.png" width=90%>
+
+- Key trick: *self play*!
+- Can train the "value network" by competing against other algorithms
+
+---
+class: top
+
+
+## Algorithms debugging Algorithms
+
+- Algorithms some times have bugs
+- We miss cases, we don't consider unexpected inputs
+- Trick: design algorithms to act as *adversaries*
+--
+
+- Modern CS tools already do this
+    + IDEs that look for type issues
+    + Unit testing frameworks
+    + Vulnerability scanning
+
+
+**Key Point**: Some of the best tools in ML reflect this methodology
+
+---
+class: top
+
+
+## Introduction to Boosting
+
+- Assume we have some dataset $S = \\{(x_1, y_1), \ldots, (x_n,y_n)\\}$.
+--
+
+- Assume we have some set of *weak learners*, i.e. "stupid predictors", $\mathcal{H}$ a set of functions $\mathcal{X} \to \mathcal{Y}$.
+  + **Weak Learning Condition**: For $\gamma > 0$, have $\forall D \in \Delta(S)\; \exists h \in \mathcal{H}: \quad \text{Pr}_{i \sim D}(h(x_i) = y_i) \geq \frac12 + \gamma$
+--
+
+- **Question**: Can we combine weak learners into a *strong* learner?
+    + **Strong Learning Condition**: A weighted average over $h \in \mathcal{H}$ has 0 error.
+- Freund/Schapire 1996ish: Yes!
+
+---
+class: top
+
+
+## Basic Boosting Template
+
+- Initialize weights $w_i = 1$ for every data point $(x_i, y_i)$.
+- Initialize $H = \emptyset$, a "bag of predictors"
+- For $t=1, \ldots, T$:
+    + Define distribution $D$ via $D(i) = \frac{w_i}{\sum_j w_j}$
+    + Query *weak learning oracle* to obtain $h$ so that $\text{Pr}_{i \sim D}(h(x_i) = y_i) \geq 1 + \gamma$
+    + Insert $h$ into $H$
+    + Update weights, $w_i \leftarrow w_i \beta^{\mathbb{1}[h(x_i) \ne y_i]}$
+- Output *strong* predictor: $F_H(x) := \text{MajorityVote}(\\{h(x) : h \in H\\})$
+
+---
+class: top
+
+
+## AdaBoost in Action
+
+[![](https://img.youtube.com/vi/k4G2VCuOMMg/0.jpg)](https://www.youtube.com/watch?v=k4G2VCuOMMg)
+<!-- 
+![Adaboost in action](http://web.eecs.umich.edu/~jabernet/eecs598course/fall2013/web/adaboost.gif) -->
+
+
+---
+class: top
+
+
+## Boosting via Game Playing?
+
+<img src="../../assets/boosting_minimax_schapire.png" width=60%>
+---
+class: top
+
+
+## Two-player 0-sum game refresher: Rock-Paper-Scissors
+
+<img src="../../assets/rps-logo-og.png" width=40%>
+- One player chooses a randomized action $i$
+- Simultaneously another player chooses a randomize action $j$
+--
+
+- Player 1 receives reward $M\_{i,j}$, Player 2 loses $M\_{i,j}$
+
+<img src="../../assets/rockpaperscissorspayoff.png" width=40%>
+
+
+---
+class: top
+
+
+## von Neumann's Minimax Theorem
+
+*Intuition*: When playing a two-player zero-sum game, if both players may choose a randomized strategy, then it really doesn't matter who commits to a strategy first.
+
+**Theorem (von Neumann 1928)**: Let $M \in \mathbb{R}^{n \times m}$ be the payoff matrix for a zero-sum game. Then we have
+<div>
+  $$\min_{p \in \Delta_n} \max_{q \in \Delta_m} p^\top M q = 
+\max_{q \in \Delta_m} \min_{p \in \Delta_n}  p^\top M q $$
+</div>
+
+Note: $p^\top M q$ is the expected payoff when Player1, Player2 sample actions from $p$, $q$, respectively 
+
+
+---
+class: top
+
+
+## Boosting as a game
+
+- Given examples $S = (x_1, \ldots, x_n)$ and weak hypotheses $h_1(\cdot), \ldots, h_m(\cdot)$, define matrix $M$ via 
+$$\begin{eqnarray} M[i,j] & := &  + 1 \;\quad \text{ if } h_j(x_i) \text{ is correct } \\\\
+M[i,j] & := & -1 \; \quad \text{ if } h_j(x_i) \text{ incorrect }
+\end{eqnarray}$$
+--
+
+### Boosting game
+- On each round:
+  - data-player chooses distrbution $D$ over dataset
+  - learner-player, aiming to beat data-player, chooses $h(\cdot)$ that ``predicts well'' on $D$
+  - On next round, data-player updates $D$ to be *even harder* on $h$
+  - and so on...
+
+---
+class: top
+
+## Minimax Theorem ==> Boosting
+
+- **Weak Learning Hypothesis** states that "on any distr. of data there's a weak hypoth. with better than random accuracy".
+
+    * WLH *equivalent to*: $\min_p \max_q p^\top M q \geq 2\gamma$
+--
+
+- **Strong Learning Hypothesis** states that "there is some mixture of weak hypotheses such that a weighted majority vote of them always predicts correctly".
+    * SLH *equivalent to*: $\max_q \min_p p^\top M q \geq 2\gamma$
+
+--
+
+- Remaining question: how do we find this strong hypothesis?
+
+---
+class: top
+
+
+## Detour: Classical Statistical Learning
+
+Given unknown distribution on $z \sim D$. I want to "learn" some parameters $\theta \in \Theta$ to minimize a loss objective $\ell(\theta, z)$ (in expect.). I.e., want to find
+<div>
+$$ \theta^* := \arg\min_{\theta \in \Theta} \overbrace{\EE_{z \sim D} [ \ell(\theta, z)]}^{L(\theta)}$$
+</div>
+
+--
+
+Unfortunately, all I have is a sample $z\_1, \ldots, z\_n$, so all I can do is choose $\hat \theta$ to minimize $\hat L(\theta) := \frac 1 n \sum_{i=1}^n \ell(\theta, z_i)$.
+
+*Classical Statistical Learning*: under certain conditions we are guaranteed that $L(\hat \theta) \to L(\theta^*)$ at "a pretty fast rate".
+
+---
+class: top
+
+## Limitations of Statistical Learning
+
+It has become clear that the statistical learning framework has many limitations
+
+- Assumes the data is available in advance
+- Doesn't allow for dynamic learning strategies
+- Assumes a fixed distribution
+- Is not necessarily robust to adversarial data
+
+
+
+---
+class: top
+
+
+## Alternative: Online Learning Framework
+
+**Online convex optimization**:
+
+- *learner* who chooses actions from compact/convex $K \subset \reals^n$
+- For $t=1, \ldots, T$:
+    + learner selects $x_t \in K$
+    + learner receives convex loss function $\ell_t(\cdot)$ on $K$
+    + learner pays $\ell_t(x_t)$
+- Ultimately, learner wants to minimize *regret*
+<div>
+$$\areg_T := \frac 1 T \left( \sum_{t=1}^{T} \ell_{t}(x_{t}) - \min_{x \in K} \sum_{t=1}^T \ell_t(x) \right) $$
+</div>
+
+- **Goal: No Regret!** Possible to design alg. so $\areg_T \to 0$?
+
+
+---
+class: top
+
+
+## Minimax Thm via Online Learning (1)
+
+**Amazing:** Existence of no-regret alg implies Minimax Theorem!
+
+- Let's prove a *harder* version of the minimax theorem.
+- let $g(x,y)$ be convex in vector $x$ and concave in vector $y$
+- **Von Neumann Generalized**: $\min_x \max_y g(x,y) = \max_y \min_x g(x,y)$
+--
+
+
+*Note:* We prove "hard" part, $\min_x \max_y g(x,y) \leq \max_y \min_x g(x,y)$:
+
+- Let both players choose $x_t$, $y_t$ in sequence
+- Players will update strategies by *learning* via Online Convex Opt.
+- The $x$-player's seq. of loss fn's is $g(\cdot, y_1), g(\cdot,y_2), \ldots$
+- The $y$-player's seq. of loss fn's is $-g(x_1, \cdot), -g(x_2,\cdot), \ldots$
+
+---
+class: top
+
+
+## Minimax Thm via Online Learning (2)
+
+Let's assume the $x$-player can guarantee $\areg_T^x = o(1)$. Then
+--
+
+<div>
+$$
+\begin{eqnarray*}
+  \textstyle \frac 1 T \sum_{t=1}^T g(x_t, y_t) \; = \; \textstyle \frac 1 T \sum_{t=1}^T \ell_t(x_t) 
+  & = & \textstyle \min_{x} \left[ 
+    \frac 1 T \sum_{t=1}^T \ell_t(x) \right] + \areg_T^x \\\\
+  & =& \textstyle \min_{x} \left[ \frac 1 T \sum_{t=1}^T g(x, y_t) \right] + \areg_T^x \\\\
+  & \leq & \min_{x}  
+    g\left(x,{ \textstyle \frac 1 T \sum_{t=1}^T y_t}\right) + \areg_T^x \\\\
+  & \leq & \max_{y} \min_{x}  g(x,y) + \areg_T^x
+\end{eqnarray*}
+$$
+</div>
+
+
+
+---
+class: top
+
+
+## Minimax Thm via Online Learning (3)
+
+Can apply same to $y$-player! Notice
+
+<div>
+  $$
+  \begin{eqnarray*}
+    \textstyle \frac 1 T \sum_{t=1}^T g(x_t, y_t) & \geq & 
+      \textstyle \max_{y}  
+      g\left({ \textstyle \frac 1 T \sum_{t=1}^T x_t}, y\right) - \areg_T^y \\\\
+    & \geq  & \textstyle \min_{x} \max_{y}  g\left(x, y\right) - \areg_T^y
+  \end{eqnarray*}
+  $$
+</div>
+
+Combining:
+<div>
+  $$
+    \min_{x} \max_{y}  g\left(x, y\right) - \areg_T^y \leq 
+    \max_{y} \min_{x}  g(x,y) + \areg_T^x
+$$
+</div>
+
+Recall: we can make $T \to \infty$ and send $\areg_T^x + \areg_T^y \to 0$
+
+---
+class: top
+
+
+## This Proof Leads to an Algorithm
+
+Let $\epsilon_T := \areg_T^x + \areg_T^y$. Let $V^*$ be OPT value of game. We showed:
+<div>
+$$
+\begin{eqnarray*}
+    \max_{y} g(
+        \overbrace{ \textstyle \frac 1 T \sum_{t=1}^T x_t}^{\text{Avg. action } \bar{x}_T}
+    , y) & \leq & V^* + \epsilon_T \\
+    \min_{x}  g(x,
+        \underbrace{\textstyle \frac 1 T \sum_{t=1}^T y_t}_{\text{Avg. action } \bar{y}_T}
+    ) & \geq & V^* - \epsilon_T
+\end{eqnarray*}
+$$
+</div>
+
+- In other words, we extracted $\epsilon_T$-almost optimal solutions to the game
+- How? Observe each alg's decisions, $x_1, x_2, \ldots$'s and $y_1, y_2, \ldots$'s, and *take the average*!
+
+
+---
+class: top
+
+
+## What's the Best OCO Algorithm?
+
+- What algorithms minimize regret? Depends on the setting.
+
+--
+
+1. When $x \in \Delta\_n$, $\ell\_t(x) = l\_t^\top x$ (linear loss), $\\|l\_t\\|\_\infty \leq 1$, then:
+    - **Exponential Weights Algorithm**: $x_{t+1}[i] =  \frac{x_t[i]\exp(-\eta l_t[i])}{Z_t}$
+    - Can guarantee: $\areg_T = O\left( \sqrt{\frac{\log n}{T}} \right)$
+--
+
+1. When $x \in L_2\text{-ball}$, $\ell_t(x)$ convex and $C$-lipschitz, then:
+    - **Gradient Descent Algorithm**: $x_{t+1} = x_t - \eta \nabla \ell_t(x_t)$
+    - Can guarantee: $\areg_T = O\left( \sqrt{\frac{C^2 \\|x^*\\|^2}{T}} \right)$
+    - Logistical problem: update $x_t - \eta \nabla \ell_t(x_t)$ may violate constraints! Need to do projection :-(
+
+
+---
+class: top
+
+
+## Key Facts of Online Learning
+
+- OCO algorithms must manage tradeoff between "respond to data" and "remain stable"
+- The simplest algorithm one might try: **Follow The Leader**
+    + FTL: $x\_{t+1} := \arg\min\_x \sum\_{s=1}^t \ell\_s(x)$
+- In general, doesn't work!
+    + Can show $\areg\_T(\text{FTL}) = \Theta(1)$.
+- **However**  can show FTL works great when $\ell\_t(\cdot)$ are *strongly convex*, i.e. "suitably curved".
+    + FTL with strong convexity $\implies \areg\_T(\text{FTL}) = O\left(\frac{\log T}{T}\right)$
+
+---
+class: top
+
+## Boosting via online learning, revisited
+
+- We can reformulate the Boosting algorithm now as
+  + The data-player updates $D$ using *Exponential Weights Algorithm*
+  + The learner-player chooses $h(\cdot)$ using *Best Response Algorithm*
+  + (Note: BestResponse isn't quite a learning algorithm, but it is allowed within this framework, and has $\areg_T \leq 0$!)
+--
+
+- There is a cottage industry on designing new Boosting algorithms that tinker with the above formulation (see recent book of Schapire and Freund)
+
+
+---
+class: middle
+
+# Application 1: 
+## Generative Methods via Deep Learning
+
+
+
+---
+class: top
+
+
+## Generative Models via Deep Learning
+
+- Classifying data is great but... what about generating data?
+- There's been a lot of work on estimating density functions
+    + e.g. (gaussian) kernel density estimation
+- But what about just generating high-dimensional data?
+- Recent success of deep learning: Generative Adversarial Networks (GANs)
+
+---
+class: top
+
+
+## GANs are Cool (1)
+
+<img src="../../assets/gans-example.png" width=90%>
+---
+class: top
+
+
+## GANs are Cool (2)
+
+<a href="https://www.youtube.com/watch?v=XOxxPcy5Gr4"><img src="../../assets/gans_youtube.png" width=80%></a>
+
+
+---
+class: top
+
+
+## Minimax formulation of GAN
+
+- We imagine a *generator* is a generating process $G\_u(\cdot)$, parameterized by $u \in \mathcal{U}$, that receives a random seed $z$ (perhaps $\sim N(0, I)$), and outputs $G\_u(z)$
+- We imagine a *discriminator* is some predictive classifier $D\_v(\cdot)$, parameterized by $v \in \mathcal{V}$, that receives an observation $x$ and outputs a probability that $x$ is *generated* vs. *real*
+- Objective of a discriminator vs. a generator:
+<div>
+  $$
+    g(u,v) = \EE_{x \sim \text{Real}}[\log D_v(x)] + \EE_{x \sim G_u}[\log(1 - D_v(x))]
+  $$
+</div>
+
+The minimax GAN objective:
+<div>
+  $$
+  \min_{u \in \mathcal{U}} \max_{v \in \mathcal{V}} g(u,v)
+  $$
+</div>
+
+---
+class: top
+
+
+## An Online Learning Perspective of GANs
+
+#### Kodali, A., Kira, Hayes: "How to Train Your DRAGAN" (Arxiv)
+
+- The minimax formulation of GANs immediately suggests an online learning-style analysis
+-  Major problem is non-convexity of both players
+- Modified objective function is empirically more robust against undesirable local minima
+
+
+---
+class: top
+
+## DRAGAN Results
+
+<img src="../../assets/dragan_results.png" width=90%>
+
+
+---
+class: middle
+
+# Application 2:
+##A New Perspective on Iterative Optimization
+
+
+---
+class: top
+
+
+## Vanilla Optimization
+
+In a typical optimization problem, I'm given a constraint set $\K$ and a (possibly-convex) optimization objective $f(x)$ and I want to solve
+<div>
+$$
+    \min_{x \in \K} f(x)
+$$
+</div>
+
+Let $x^\*$ be the minimizer of the above. Then a typical strategy is to sequentially choose iterates $x_0, x_1, x_2, \ldots$ so that $x_T$ is "close to optimal".
+$$
+    \text{Approximation error:} \quad \quad f(x_T) - f(x^*)
+$$
+
+---
+class: top
+
+
+
+## Trivial Reduction: Optimization ==> Online Learning
+
+- Define an OCO problem where $\ell_t(\cdot) := f(\cdot)$
+    + i.e. loss functions don't change!
+- Perform "training" to obtain a sequence of $x_1, x_2, \ldots, x_T$
+    + Use gradient descent (or any "good" algorithm)
+    + Assume regret $\areg_T$ is vanishing
+- Compute average $\bar{x}\_T := \frac 1 T \sum_{t=1}^T x_t$.
+- Using Jensen's inequality, we have:
+<div>
+    $$
+    \begin{eqnarray*}
+      f(\bar{x}_T)  & \leq &  \frac 1 T \sum_{t=1}^T f(x_t) = \frac 1 T \sum_{t=1}^T \ell_t(x_t) \\
+      & \leq & \frac 1 T \sum_{t=1}^T \ell_t(x^*) + \areg_T = f(x^*) + \areg_T
+    \end{eqnarray*}
+    $$
+</div>
+
+---
+class: top
+
+
+## Reduction Not Ideal
+
+- The above reduction relies on an efficient OCO algorithm
+- Even regret $\areg_T = O(T^{-1/2})$ not great
+    + Many optimization problems admit rates of $O(1/T), O(1/T^2)$, sometimes even $O(\exp(-T))$!
+- Gradient descent, for example, requires ability to *project* iterates into feasible set
+- Often, the projection step is *just as hard* as solving original problem
+
+
+---
+class: top
+
+
+### Frank-Wolfe  (1956) -- Rate: $O(1/T)$
+- Initialize: $z_1 \in \K$
+- For $t=1, \ldots, T$:
+    + Compute gradient: $x_t = \nabla f(z_t)$
+    + Call LinOpt: $y\_t = \arg\min\_{y \in \K} \langle x\_t, y \rangle$
+    + Update: $z\_{t+1} = (1-\gamma\_t) z\_t + \gamma\_t y\_t$
+- Return $z\_T$
+
+### Heavy-Ball (1964) -- Rate: $O(1/T)$
+- Initialize: $z_0 \in \K$
+- For $t=1, \ldots, T$:
+    + $x\_{t+1} = x\_t - \alpha \nabla f(x\_t) + \beta (x\_t - x\_{t-1})$
+- Return $x\_T$
+
+
+---
+class: top
+
+## Can we do better than $O(1/T)$
+
+For the longest time, it was believed that a $O(1/T)$ rate was the best possible.
+
+Then Nesterov published a huge result:
+
+### Nesterov Acceleration  (1983) -- Rate: $O(1/T^2)$
+- Initialize: $z_0 \in \K$
+- For $t=1, \ldots, T$:
+    + $w\_t = z\_{t-1} - \theta \nabla f(z\_{t-1})$
+    + $z\_{t} = w\_t + \frac{t-1}{t+2}(w\_t - w\_{t-1})$
+- Return $w\_T$
+
+Big question: why does this have such a fast rate? What's going on?
+
+
+---
+class: top
+
+
+## Recent work: All Algorithms are Game Playing
+
+Let me discuss some recent with two of my students, Jun-Kun Wang and Kevin Lai (with additional help from Kfir Levy at EPFL)
+--
+
+#### A. and Wang -- NIPS 2017
+
+**Result**: Frank-Wolfe can be viewed as the result of iterative updates in a two player zero-sum game
+--
+
+#### A., Lai, Levy, Wang -- COLT 2018
+#### Wang, A. --- NIPS 2018 (in submission)
+
+**Result**: Heavy-Ball and Nesterov Acceleration can be viewed in *exactly the same way*!!
+
+
+---
+class: top
+
+
+## Fenchel Duality
+
+- What is implicitly the 0-sum game that describes all of these?
+--
+
+- We need to define the *Fenchel Conjugate* of a convex function
+<div>
+    $$
+        \text{Fenchel conj. of $f$ is } \; \; f^*(\theta) := \sup_{x} \left\{ \theta^\top x - f(x) \right\}
+    $$
+</div>
+--
+
+- For a strictly convex and smooth function, one nice interpretation of $f^\*$ is via the *gradient map*
+    + If we think of $\nabla f$ as mapping points $x \mapsto \nabla f(x)$, then $f^\*$ is the *unique* function (up to add. constants) whose derivative inverts this mapping!
+    + That is, $(\nabla f (\cdot))^{-1} = \nabla f^*(\cdot)$
+
+---
+class: top
+
+
+## Game theory view of optimization
+
+- Define the Fenchel Game as
+$$
+    g(x,y) := f^*(x) - x^\top y.
+$$
+- The **Frank-Wolfe** algorithm is:
+  + $y$ player plays FollowTheLeader
+  + $x$ player plays BestResponse
+- The **Heavy Ball** algorithm is:
+  + $y$ player plays FollowTheLeader
+  + $x$ player plays GradientDescent
+- The **Nesterov Acceleration** algorithm is:
+  + $y$ player plays OptimisticFollowTheLeader
+  + $x$ player plays GradientDescent
+
+Rates follow from mostly simple bounds on the regret of each player.
+
+---
+class: middle
+
+<center>
+<h1>
+  $\sim \sim$ FIN $\sim \sim$ 
+</h1> 
+</center>
+
+.footnote[Slides made entirely with Markdown, Remark.js, MathJax, and animated GIFs]
+
+    </textarea> <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript"></script> <script type="text/javascript">var slideshow=remark.create({navigation:{scroll:!1},countIncrementalSlides:!1,highlightStyle:"tomorrow-night-eighties",highlightLanguage:"remark",highlightLines:!0});</script> <script>var hljs=remark.highlighter.engine;</script> <script type="text/javascript">MathJax.Hub.Config({jax:["input/TeX","output/SVG"],tex2jax:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["[","]"]],skipTags:["script","noscript","style","textarea","pre"]}}),MathJax.Hub.Queue(function(){$(MathJax.Hub.getAllJax()).map(function(t,a){return a.SourceElement()}).parent().addClass("has-jax")}),MathJax.Hub.Configured();var slideshow=remark.create({countIncrementalSlides:!1,highlightStyle:"tomorrow-night-eighties",highlightLanguage:"remark",highlightLines:!0});</script> <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("End Jax",function () {
+        var BROWSER = MathJax.Hub.Browser;
+        var jax = "SVG";
+        if (BROWSER.isMSIE && BROWSER.hasMathPlayer) jax = "NativeMML";
+        return MathJax.Hub.setRenderer(jax);
+        });
+      MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+    </script> </body> </html>
