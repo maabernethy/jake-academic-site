@@ -1,4 +1,15 @@
 ---
 ---
 
-{{reference}}
+{% if entry.comments %}
+  <div class="comment semi-bold">
+    {{entry.comments}}
+    <span class='line' />
+  </div>
+{% endif %}
+
+<div class='reference {% if entry.comments %}highlight{% endif %}'>
+  <span class="left">
+    {{reference}}
+  </span>
+</div>

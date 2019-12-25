@@ -3,7 +3,7 @@ layout: default
 id: people
 ---
 
-# Current group
+# Current
 
 <div class='group'>
   {% include team_pic.html
@@ -56,7 +56,7 @@ id: people
 </div>
 
 
-# Former students and postdocs
+# Former students & postdocs
 
 <div class='group'>
   {% include team_pic.html

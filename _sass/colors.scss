@@ -19,12 +19,16 @@ main {
     color: $purple-highlight;
   }
 
-  h3, h2 {
+  h1, h3, h2 {
+    color: $black-text;
+  }
+
+  .table-header {
     color: $grey-text;
   }
 }
 
-#publications {
+#publications, #landing {
   .comment {
     color: $gold-highlight;
 
@@ -40,6 +44,7 @@ main {
     border-bottom: 1px solid $gold-highlight;
   }
 }
+
 
 #navbar {
   background-color: $grey-background;

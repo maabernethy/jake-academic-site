@@ -5,16 +5,10 @@
 <main>
   {% include navbar.html %}
     <div id="landing">
-      <div class='left-section'>
+      <div class='top-section'>
         <img class='profile-pic' src={{'/assets/images/jake_profile.jpg' | relative_url }}></img>
-        <div class=''>
-          <h3>Recent News</h3>
-          {{ content }}
-        </div>
-      </div>
-      <div class='right-section'>
         <div class='intro'>
-          <p>
+          <p class='no-top-margin'>
             I am an Assistant Professor in the <a href='https://www.scs.gatech.edu/'>School of Computer Science</a>
             in the <a href='https://www.cc.gatech.edu/'>College of Computing</a> at the
             <a href='https://www.gatech.edu/'>Georgia Institute of Technology</a>.
@@ -29,16 +23,16 @@
             for the following two years.
           </p>
         </div>
-        <div class='section-view-all'>
-          <h3>Recent Publications</h3>
-          <a href={{ '/publications' | relative_url }} class='bold'>
-            view all
-            <i class="fas fa-chevron-right"></i>
-          </a>
+      </div>
+      <div class='news-section'>
+        <h2>Recent News</h3>
+        <div class='news'>
+          {{ content }}
         </div>
-        <div class='publications'>
-          {% bibliography -q @inproceedings[year>=2016] --max 5 --template bibliography-short --group_by none %}
-        </div>
+      </div>
+      <div class='recent-pubs-section'>
+        <h2>Recent Publications</h3>
+        {% bibliography -q @inproceedings[year>=2016] --max 5 --template bibliography-short --group_by none %}
       </div>
     </div>
 </main>
